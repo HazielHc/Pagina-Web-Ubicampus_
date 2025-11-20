@@ -31,15 +31,29 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
+        .logo{
+            background-color: #0e0d0d3f;
+            padding: 10px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            transform: scale(1.05);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.425); 
+            
+        }
+
         /* Navbar */
         .navbar {
             background: #002855;
-            padding: 20px 20px;
+            padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             color: white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0);
         }
 
         .navbar .logo {
@@ -61,7 +75,6 @@
             text-decoration: none;
             font-weight: 300;
             transition: 0.3s ease;
-            font-size: 1rem;
         }
 
         .navbar ul li a:hover {
@@ -72,7 +85,7 @@
         .hero {
             text-align: center;
             padding: 120px 20px;
-            background: linear-gradient(#002855, #003a78);
+            background: linear-gradient(#002855, #021730);
             color: white;
             animation: fadeIn 1.5s ease forwards;
         }
@@ -86,6 +99,27 @@
             font-size: 1.2rem;
             opacity: 0.9;
         }
+
+        .hero a {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 20px;
+    background-color: rgba(19, 18, 18, 0.1);
+    font-size: 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.hero a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+
+}
+
 
         .btn-primary {
             margin-top: 30px;
@@ -110,8 +144,9 @@
             background: white;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.192);
             animation: slideUp 1s ease forwards;
+            trnas
         }
 
         .container h2 {
@@ -142,7 +177,6 @@
         .logo-img {
         height: 30px;
         width: auto;
-        cursor : pointer;
         
         
 }
