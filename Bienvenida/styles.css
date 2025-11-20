@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicampus</title>
+
+    <style>
+    
+        /* Fuente elegante */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #f5f6f7;
+        }
+
+        /* Animaciones */
+        .fade-in {
+            animation: fadeIn 1.3s ease-in-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #002855;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .navbar .logo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 300;
+            transition: 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            opacity: 0.6;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(#002855, #003a78);
+            color: white;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            margin-top: 30px;
+            display: inline-block;
+            background: white;
+            color: #002855;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #e4e4e4;
+        }
+
+        /* Contenido */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+            animation: slideUp 1s ease forwards;
+        }
+
+        .container h2 {
+            margin-top: 0;
+        }
+
+        .btn-secondary {
+            margin-top: 20px;
+            display: inline-block;
+            background: #002855;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #01418a;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <div class="navbar fade-in">
+        <div class="logo">Ubicampus</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Carreras</a></li>
+            <li><a href="#">Campus</a></li>
+            <li><a href="#">Acceso</a></li>
+        </ul>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero fade-in">
+        <h1>Bienvenido a Ubicampus</h1>
+        <p>La plataforma universitaria que conecta conocimiento con tecnología</p>
+        <a href="#" class="btn-primary">Conocer más</a>
+    </header>
+
+    <!-- CONTENIDO -->
+    <div class="container">
+        <h2>Sobre Ubicampus</h2>
+        <p>
+            Ubicampus es una plataforma diseñada para mejorar la experiencia académica,
+            administrativa y social dentro de una universidad moderna. Su objetivo es facilitar
+            procesos, optimizar tiempos y brindar herramientas tecnológicas a estudiantes,
+            profesores y personal administrativo.
+        </p>
+
+        <a href="#" class="btn-secondary">Empieza ahora</a>
+    </div>
+
+</body>
+</html>
