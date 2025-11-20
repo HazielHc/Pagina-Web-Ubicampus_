@@ -34,7 +34,7 @@
         /* Navbar */
         .navbar {
             background: #002855;
-            padding: 20px 40px;
+            padding: 20px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -61,6 +61,7 @@
             text-decoration: none;
             font-weight: 300;
             transition: 0.3s ease;
+            font-size: 1rem;
         }
 
         .navbar ul li a:hover {
@@ -130,6 +131,27 @@
 
         .btn-secondary:hover {
             background: #01418a;
+        }
+
+        .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+}
+
+        .logo-img {
+        height: 30px;
+        width: auto;
+        cursor : pointer;
+        
+        
+}
+
+            
+            
+
+
+
         }
 
     </style>
