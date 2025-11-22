@@ -8,7 +8,7 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fuentes: Merriweather (Elegancia) + Inter (Modernidad) -->
+    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
     
     <!-- Iconos -->
@@ -19,8 +19,8 @@
             theme: {
                 extend: {
                     colors: {
-                        'ub-blue': '#002855', // Tu color original
-                        'ub-dark': '#021730', // Variación más oscura para degradados
+                        'ub-blue': '#002855',
+                        'ub-dark': '#021730',
                     },
                     fontFamily: {
                         serif: ['Merriweather', 'serif'],
@@ -30,44 +30,21 @@
             }
         }
     </script>
-
-    <style>
-        /* Efecto de desvanecimiento para el fondo */
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,1) 95%);
-        }
-        
-        /* Animación de entrada suave */
-        .fade-in-up {
-            animation: fadeInUp 1s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Estilo para el input placeholder */
-        ::placeholder {
-            color: rgba(0, 40, 85, 0.6);
-        }
-    </style>
 </head>
 <body class="bg-white font-sans text-gray-900 overflow-x-hidden">
 
     <!-- HEADER -->
+    <!-- 'justify-between' es clave aquí: empuja el primer hijo a la izquierda y el último a la derecha -->
     <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-start">
         
-        <!-- Logo y Enlace Oficial (Izquierda) -->
+        <!-- === 1. GRUPO IZQUIERDA (Logo + Enlaces) === -->
         <div class="flex flex-col md:flex-row md:items-center bg-white/95 backdrop-blur-md p-4 pr-8 rounded-br-xl shadow-sm md:shadow-none md:bg-transparent transition-all duration-300">
             
-            <!-- Logo Block -->
+            <!-- A. Logo Block -->
             <a href="Inicio.html" class="flex items-center gap-3 mr-8 group">
-                <!-- Contenedor del logo o icono por si la imagen falla -->
                 <div class="bg-ub-blue text-white w-12 h-12 flex items-center justify-center font-bold text-xl rounded-lg shadow-lg group-hover:scale-105 transition duration-300 overflow-hidden">
-                    <!-- Tu imagen de logo -->
-                    <img src="/img/logo-upen.png" alt="UPEN" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerText='U'">
+                    <!-- Logo placeholder (simulado con texto para que se vea algo) -->
+                    <span>U</span>
                 </div>
                 
                 <div class="flex flex-col leading-none">
@@ -76,15 +53,32 @@
                 </div>
             </a>
 
-            <!-- Enlace a Página Oficial (Estilo Ticker) -->
-            <a href="https://upnay.edu.mx/" target="_blank" class="hidden md:flex items-center text-sm font-medium text-gray-600 hover:text-ub-blue hover:underline transition mt-2 md:mt-0 pl-4 md:border-l border-gray-300">
-                <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
-                Ir a Página Oficial UPEN
-                <i class="ph ph-arrow-up-right ml-1"></i>
-            </a>
-        </div>
+            <!-- B. Enlaces (Página Oficial + Moodle) -->
+            <div class="flex items-center gap-8">
 
-        <!-- Bloque Menú (Derecha) -->
+                <!-- Enlace enlace a la pagina oficial -->
+                <a href="https://upnay.edu.mx/" target="_blank" class="hidden md:flex items-center text-sm font-medium text-gray-600 hover:text-ub-blue hover:underline transition pl-4 md:border-l border-gray-300">
+                    <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+                    Ir a Página Oficial UPEN
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                </a>
+
+                <!-- Enlace a moddle -->
+                <a href="https://upnay.edu.mx/mupen/login/index.php" target="_blank" class="group flex items-center gap-2 text-gray-600 hover:text-[#0f2545] transition-colors">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span class="font-medium">Moodle</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-gray-400 group-hover:text-[#0f2545]">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                    </svg>
+                </a>
+            </div> 
+
+        </div> 
+
+        <!-- === 2. GRUPO DERECHA (Menú Azul) === -->
+        <!-- Al estar fuera del div anterior, 'justify-between' lo empuja a la esquina -->
         <div class="bg-ub-blue text-white flex items-stretch h-16 md:h-20 shadow-2xl rounded-bl-xl overflow-hidden">
             <a href="menu.html" class="flex items-center gap-2 px-6 hover:bg-ub-dark transition border-r border-white/10">
                 <i class="ph ph-user-circle text-2xl"></i>
@@ -98,6 +92,7 @@
                 </div>
             </button>
         </div>
+
     </header>
 
     <!-- HERO SECTION -->
@@ -106,9 +101,9 @@
         <!-- Fondo -->
         <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
             <!-- Imagen académica genérica (puedes cambiarla por una foto de tu campus) -->
-            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop" 
-                 alt="University Campus" 
-                 class="w-full h-[90%] object-cover object-center opacity-90">
+            <img src="/img/Upen dron.jpeg" 
+                alt="University Campus" 
+                class="w-full h-[90%] object-cover object-center opacity-90">
         </div>
 
         <!-- Gradiente Blanco -->
@@ -134,8 +129,8 @@
                         <i class="ph ph-identification-badge text-2xl"></i>
                     </div>
                     <input type="text" 
-                           placeholder="Ingresa tu usuario..." 
-                           class="bg-transparent border-none outline-none w-full px-4 text-gray-800 placeholder-gray-500 font-medium h-12"
+                        placeholder="Ingresa tu usuario..." 
+                        class="bg-transparent border-none outline-none w-full px-4 text-gray-800 placeholder-gray-500 font-medium h-12"
                     >
                     <button class="bg-ub-blue hover:bg-ub-dark text-white rounded-full w-12 h-12 flex items-center justify-center transition shadow-md">
                         <i class="ph ph-arrow-right font-bold text-lg"></i>
