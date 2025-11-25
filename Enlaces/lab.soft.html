@@ -1,0 +1,276 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de Software - Diseño Moderno</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .nav-link-active { color: #2563EB; position: relative; }
+        .nav-link-active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #2563EB; }
+        .nav-link { color: #4B5563; transition: color 0.2s; }
+        .nav-link:hover { color: #111827; }
+        
+        /* Patrón de fondo sutil para el cuerpo */
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-pattern text-slate-800">
+
+    <!-- NAVBAR (Idéntico) -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-1 cursor-pointer">
+                    <span class="text-4xl font-black text-green-600 tracking-tighter">UPEN</span>
+                    <div class="h-6 w-3 bg-gradient-to-b from-yellow-400 via-red-500 to-blue-600 rounded-full ml-1"></div>
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#" class="nav-link-active font-semibold">Inicio</a>
+                    <a href="#" class="nav-link">Oferta Educativa</a>
+                    <a href="#" class="nav-link">Alumnos</a>
+                    <a href="#" class="nav-link">Docentes</a>
+                    <a href="#" class="nav-link">Contacto</a>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <div class="h-2 w-2 bg-red-500 rounded-full"></div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 px-6 rounded-full shadow-md transition-colors duration-200">
+                        dadasdasdasdfafqaFGA
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER (Imagen de fondo + Título) -->
+    <header class="relative bg-slate-900 h-96">
+        <!-- Imagen de fondo con overlay -->
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-40" alt="Fondo Laboratorio">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center pb-12">
+            <!-- Badges -->
+            <div class="flex gap-2 mb-4">
+                <span class="px-3 py-1 rounded-full bg-blue-600/20 text-blue-300 border border-blue-500/30 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">Ingeniería</span>
+                <span class="px-3 py-1 rounded-full bg-green-600/20 text-green-300 border border-green-500/30 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">Disponible</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2">Laboratorio de Software e Innovación</h1>
+            <p class="text-xl text-slate-300 max-w-2xl">Espacio dedicado al desarrollo Full-Stack, Inteligencia Artificial y Ciberseguridad.</p>
+        </div>
+    </header>
+
+    <!-- BARRA FLOTANTE DE INFO (Overlap) -->
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 mb-12">
+        <div class="bg-white rounded-xl shadow-xl border border-slate-100 p-6 grid grid-cols-1 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            
+            <div class="flex items-center gap-4 px-2">
+                <div class="p-3 bg-blue-50 rounded-lg text-blue-600">
+                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 font-bold uppercase">Ubicación</p>
+                    <p class="font-semibold text-slate-800">Edificio Tech, Aula 204</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 px-2 pt-4 md:pt-0">
+                <div class="p-3 bg-indigo-50 rounded-lg text-indigo-600">
+                    <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 font-bold uppercase">Capacidad</p>
+                    <p class="font-semibold text-slate-800">30 Workstations</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 px-2 pt-4 md:pt-0">
+                <div class="p-3 bg-emerald-50 rounded-lg text-emerald-600">
+                    <i data-lucide="clock" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-500 font-bold uppercase">Próximo Cierre</p>
+                    <p class="font-semibold text-slate-800">Hoy, 20:00 hrs</p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center md:justify-end px-2 pt-4 md:pt-0">
+                <button class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-6 rounded-lg transition shadow-lg flex items-center justify-center gap-2">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                    Agendar Práctica
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- CONTENIDO IZQUIERDO (Información y Galería) -->
+            <div class="lg:col-span-7 space-y-12">
+                
+                <!-- Sección Acerca de -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="w-8 h-1 bg-blue-600 rounded-full block"></span>
+                        Sobre este espacio
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-lg mb-6">
+                        El Laboratorio ITIID está diseñado para simular un entorno de startup tecnológica real. A diferencia de las aulas tradicionales, aquí encontrarás estaciones de trabajo colaborativas y acceso directo a servidores locales para despliegue de aplicaciones.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
+                        <p class="text-blue-900 font-medium italic">"Un lugar donde el código cobra vida y los proyectos se convierten en productos."</p>
+                    </div>
+                </section>
+
+                <!-- Especificaciones Técnicas (Cards Grid) -->
+                <section>
+                    <h3 class="font-bold text-slate-900 mb-4">Recursos Disponibles</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="border border-slate-200 p-4 rounded-xl hover:shadow-md transition bg-white">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i data-lucide="cpu" class="text-purple-600"></i>
+                                <span class="font-bold text-slate-800">Hardware</span>
+                            </div>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• Procesadores i9 12th Gen</li>
+                                <li>• 32GB RAM DDR5</li>
+                                <li>• Doble Monitor 27" 4K</li>
+                            </ul>
+                        </div>
+                        <div class="border border-slate-200 p-4 rounded-xl hover:shadow-md transition bg-white">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i data-lucide="code-2" class="text-pink-600"></i>
+                                <span class="font-bold text-slate-800">Software</span>
+                            </div>
+                            <ul class="text-sm text-slate-600 space-y-1">
+                                <li>• Licencias JetBrains Full</li>
+                                <li>• Adobe Creative Cloud</li>
+                                <li>• Docker & Kubernetes Local</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Galería Estilo Masonry/Grid -->
+                <section>
+                    <h3 class="font-bold text-slate-900 mb-4">Instalaciones</h3>
+                    <div class="grid grid-cols-2 gap-4 h-80">
+                        <div class="col-span-1 h-full rounded-2xl overflow-hidden relative group">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
+                                <span class="text-white font-medium text-sm">Zona de Ciberseguridad</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-rows-2 gap-4 h-full">
+                            <div class="rounded-2xl overflow-hidden relative group">
+                                <img src="https://images.unsplash.com/photo-1531297461136-82lw9b5b9b23?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden relative group">
+                                <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition">
+                                    <span class="text-white font-bold border border-white px-4 py-1 rounded-full text-sm">Ver +5 fotos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- CONTENIDO DERECHO (Video y Normas) -->
+            <div class="lg:col-span-5 space-y-8">
+                
+                <!-- Video Card (Estilo flotante) -->
+                <div class="bg-white p-2 rounded-2xl shadow-lg border border-slate-100 transform rotate-1 hover:rotate-0 transition duration-300">
+                    <div class="relative rounded-xl overflow-hidden shadow-inner aspect-video bg-black">
+                        <iframe 
+                            class="w-full h-full"
+                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder" 
+                            title="Video Laboratorio" 
+                            frameborder="0" 
+                            allow="autoplay; encrypted-media" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-slate-800">Recorrido 360°</h4>
+                        <p class="text-sm text-slate-500">Explora el laboratorio antes de tu visita.</p>
+                    </div>
+                </div>
+
+                <!-- Lista de Normas (Estilo Checklist) -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200">
+                    <h3 class="font-bold text-slate-900 mb-6 flex items-center justify-between">
+                        Reglamento Rápido
+                        <i data-lucide="shield-check" class="text-green-500"></i>
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-xs">1</div>
+                            <p class="text-sm text-slate-600">Prohibido instalar software sin autorización previa del administrador de TI.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xs">2</div>
+                            <p class="text-sm text-slate-600">Mantener el área de trabajo limpia. No alimentos ni bebidas.</p>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">3</div>
+                            <p class="text-sm text-slate-600">Al finalizar la sesión, cerrar sesión y apagar monitores.</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-6 border-t border-slate-100">
+                        <a href="#" class="text-blue-600 text-sm font-semibold hover:underline flex items-center gap-1">
+                            Descargar reglamento completo (PDF)
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contacto Card Simple -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-slate-400 text-xs font-bold uppercase mb-1">Dudas o reportes</p>
+                        <h3 class="font-bold text-lg mb-4">¿Problemas con el equipo?</h3>
+                        <button class="bg-white text-slate-900 text-sm font-bold py-2 px-4 rounded-lg hover:bg-slate-100 transition">
+                            Abrir Ticket de Soporte
+                        </button>
+                    </div>
+                    <!-- Decoración fondo -->
+                    <i data-lucide="life-buoy" class="absolute -bottom-4 -right-4 w-32 h-32 text-slate-700/30"></i>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-400 text-sm">
+            UPEN Labs &copy; 2024
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
