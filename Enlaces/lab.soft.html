@@ -1,12 +1,15 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio de Software - Diseño Moderno</title>
+    <title>Ingeniería de Software - UPEN</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -15,262 +18,271 @@
         .nav-link { color: #4B5563; transition: color 0.2s; }
         .nav-link:hover { color: #111827; }
         
-        /* Patrón de fondo sutil para el cuerpo */
-        .bg-pattern {
-            background-color: #f8fafc;
-            background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
+        /* Animación suave para las imágenes */
+        .hover-zoom img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        .hover-zoom:hover img { transform: scale(1.05); }
     </style>
 </head>
-<body class="bg-pattern text-slate-800">
+<body class="bg-white text-slate-800">
 
-    <!-- NAVBAR (Idéntico) -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center gap-1 cursor-pointer">
-                    <span class="text-4xl font-black text-green-600 tracking-tighter">UPEN</span>
-                    <div class="h-6 w-3 bg-gradient-to-b from-yellow-400 via-red-500 to-blue-600 rounded-full ml-1"></div>
-                </div>
-                <div class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#" class="nav-link-active font-semibold">Inicio</a>
-                    <a href="#" class="nav-link">Oferta Educativa</a>
-                    <a href="#" class="nav-link">Alumnos</a>
-                    <a href="#" class="nav-link">Docentes</a>
-                    <a href="#" class="nav-link">Contacto</a>
-                </div>
-                <div class="hidden md:flex items-center gap-4">
-                    <div class="h-2 w-2 bg-red-500 rounded-full"></div>
-                    <button class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 px-6 rounded-full shadow-md transition-colors duration-200">
-                        dadasdasdasdfafqaFGA
-                    </button>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button class="text-gray-500 hover:text-gray-700">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- --- BARRA DE NAVEGACIÓN (NAVBAR) --- -->
+<nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
 
-    <!-- HERO HEADER (Imagen de fondo + Título) -->
-    <header class="relative bg-slate-900 h-96">
-        <!-- Imagen de fondo con overlay -->
-        <div class="absolute inset-0 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover opacity-40" alt="Fondo Laboratorio">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
-        </div>
-
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center pb-12">
-            <!-- Badges -->
-            <div class="flex gap-2 mb-4">
-                <span class="px-3 py-1 rounded-full bg-blue-600/20 text-blue-300 border border-blue-500/30 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">Ingeniería</span>
-                <span class="px-3 py-1 rounded-full bg-green-600/20 text-green-300 border border-green-500/30 text-xs font-bold uppercase tracking-wider backdrop-blur-sm">Disponible</span>
-            </div>
-            
-            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2">Laboratorio de Software e Innovación</h1>
-            <p class="text-xl text-slate-300 max-w-2xl">Espacio dedicado al desarrollo Full-Stack, Inteligencia Artificial y Ciberseguridad.</p>
-        </div>
-    </header>
-
-    <!-- BARRA FLOTANTE DE INFO (Overlap) -->
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 mb-12">
-        <div class="bg-white rounded-xl shadow-xl border border-slate-100 p-6 grid grid-cols-1 md:grid-cols-4 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
-            
-            <div class="flex items-center gap-4 px-2">
-                <div class="p-3 bg-blue-50 rounded-lg text-blue-600">
-                    <i data-lucide="map-pin" class="w-6 h-6"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 font-bold uppercase">Ubicación</p>
-                    <p class="font-semibold text-slate-800">Edificio Tech, Aula 204</p>
-                </div>
+            <!-- Logo UPEN -->
+            <div class="flex-shrink-0 flex items-center gap-2">
+                <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
+                    <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
+                </a>
             </div>
 
-            <div class="flex items-center gap-4 px-2 pt-4 md:pt-0">
-                <div class="p-3 bg-indigo-50 rounded-lg text-indigo-600">
-                    <i data-lucide="users" class="w-6 h-6"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 font-bold uppercase">Capacidad</p>
-                    <p class="font-semibold text-slate-800">30 Workstations</p>
-                </div>
+            <!-- Menú Escritorio -->
+            <div class="hidden md:flex items-center space-x-8">
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="Inicio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">Inicio</a>
+                    <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Oferta Educativa</a>
+                    
+                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Contacto</a>
+                </nav>
             </div>
 
-            <div class="flex items-center gap-4 px-2 pt-4 md:pt-0">
-                <div class="p-3 bg-emerald-50 rounded-lg text-emerald-600">
-                    <i data-lucide="clock" class="w-6 h-6"></i>
-                </div>
-                <div>
-                    <p class="text-xs text-slate-500 font-bold uppercase">Próximo Cierre</p>
-                    <p class="font-semibold text-slate-800">Hoy, 20:00 hrs</p>
-                </div>
-            </div>
+            <!-- Iconos y Botón -->
+            <div class="hidden md:flex items-center space-x-4">
+              
+               
 
-            <div class="flex items-center justify-center md:justify-end px-2 pt-4 md:pt-0">
-                <button class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 px-6 rounded-lg transition shadow-lg flex items-center justify-center gap-2">
-                    <i data-lucide="calendar-check" class="w-4 h-4"></i>
-                    Agendar Práctica
+                <button class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-blue-700/20 transition-all transform hover:-translate-y-0.5">
+                    lorem
                 </button>
             </div>
 
+            <!-- Botón Menú Móvil -->
+            <div class="flex md:hidden items-center">
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
-            <!-- CONTENIDO IZQUIERDO (Información y Galería) -->
-            <div class="lg:col-span-7 space-y-12">
-                
-                <!-- Sección Acerca de -->
-                <section>
-                    <h2 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <span class="w-8 h-1 bg-blue-600 rounded-full block"></span>
-                        Sobre este espacio
-                    </h2>
-                    <p class="text-slate-600 leading-relaxed text-lg mb-6">
-                        El Laboratorio ITIID está diseñado para simular un entorno de startup tecnológica real. A diferencia de las aulas tradicionales, aquí encontrarás estaciones de trabajo colaborativas y acceso directo a servidores locales para despliegue de aplicaciones.
-                    </p>
-                    <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
-                        <p class="text-blue-900 font-medium italic">"Un lugar donde el código cobra vida y los proyectos se convierten en productos."</p>
-                    </div>
-                </section>
+    <!-- Menú Móvil -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+            <a href="Inicio.html" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium bg-blue-50 text-blue-700">Inicio</a>
+            <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Oferta Educativa</a>
+          
+            <a href="https://upnay.edu.mx/dir.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Contacto</a>
 
-                <!-- Especificaciones Técnicas (Cards Grid) -->
-                <section>
-                    <h3 class="font-bold text-slate-900 mb-4">Recursos Disponibles</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="border border-slate-200 p-4 rounded-xl hover:shadow-md transition bg-white">
-                            <div class="flex items-center gap-3 mb-2">
-                                <i data-lucide="cpu" class="text-purple-600"></i>
-                                <span class="font-bold text-slate-800">Hardware</span>
-                            </div>
-                            <ul class="text-sm text-slate-600 space-y-1">
-                                <li>• Procesadores i9 12th Gen</li>
-                                <li>• 32GB RAM DDR5</li>
-                                <li>• Doble Monitor 27" 4K</li>
-                            </ul>
-                        </div>
-                        <div class="border border-slate-200 p-4 rounded-xl hover:shadow-md transition bg-white">
-                            <div class="flex items-center gap-3 mb-2">
-                                <i data-lucide="code-2" class="text-pink-600"></i>
-                                <span class="font-bold text-slate-800">Software</span>
-                            </div>
-                            <ul class="text-sm text-slate-600 space-y-1">
-                                <li>• Licencias JetBrains Full</li>
-                                <li>• Adobe Creative Cloud</li>
-                                <li>• Docker & Kubernetes Local</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Galería Estilo Masonry/Grid -->
-                <section>
-                    <h3 class="font-bold text-slate-900 mb-4">Instalaciones</h3>
-                    <div class="grid grid-cols-2 gap-4 h-80">
-                        <div class="col-span-1 h-full rounded-2xl overflow-hidden relative group">
-                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                            <div class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent">
-                                <span class="text-white font-medium text-sm">Zona de Ciberseguridad</span>
-                            </div>
-                        </div>
-                        <div class="grid grid-rows-2 gap-4 h-full">
-                            <div class="rounded-2xl overflow-hidden relative group">
-                                <img src="https://images.unsplash.com/photo-1531297461136-82lw9b5b9b23?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                            </div>
-                            <div class="rounded-2xl overflow-hidden relative group">
-                                <img src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                                <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition">
-                                    <span class="text-white font-bold border border-white px-4 py-1 rounded-full text-sm">Ver +5 fotos</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+            <div class="mt-4 pt-4 border-t border-gray-100">
+                <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg text-center font-semibold shadow-md">
+                    Portal Alumno
+                </button>
             </div>
+        </div>
+    </div>
+</nav>
 
-            <!-- CONTENIDO DERECHO (Video y Normas) -->
-            <div class="lg:col-span-5 space-y-8">
+
+    <!-- HERO HEADER: Imagen de Fondo con Título Resaltado -->
+    <header class="relative h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
+        <!-- Imagen de fondo -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" alt="Programación y Código" class="w-full h-full object-cover opacity-50">
+            <!-- Gradiente para mejorar lectura -->
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-white"></div>
+        </div>
+
+        <div class="relative z-10 text-center max-w-4xl px-4 mt-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-blue-600/20 border border-blue-400/30 backdrop-blur-md text-blue-200 text-xs font-bold tracking-widest uppercase mb-4 shadow-lg">
+                Innovación Tecnológica
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-lg">
+                Laboratorios de  <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Software e ITIID</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-200 font-light max-w-2xl mx-auto mb-8 text-shadow">
+                Domina el lenguaje del futuro. Diseña, construye y lidera la transformación digital.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+    <a href="plan-de-estudios.html" 
+       class="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold transition shadow-lg hover:shadow-blue-500/30 flex items-center gap-2">
+        <i data-lucide="file-text" class="w-5 h-5"></i>
+        Conoce el plan de estudios
+    </a>
+</div>
+
+        </div>
+    </header>
+
+    <!-- SECCIÓN 1: Descripción de la Carrera (Texto + Imagen) -->
+    <section class="py-20 relative -mt-20 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Texto Descriptivo -->
+                    <div>
+                       
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
+                            Más que código, <br/>
+                            <span class="text-indigo-600">creamos soluciones.</span>
+                        </h2>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                            La carrera de <strong>Ingeniería de Tecnologias de la Informacion e Innovación Digital</strong> en UPEN está diseñada para formar líderes técnicos capaces de enfrentar los desafíos complejos de la industria global. No solo aprenderás a programar y saber conocer diferentes herramientas tecnologicas, sino que podras entender la estructura de nuestro mundo tecnologico, aprendiendo en nuestros laboratorios de la mano de los profesores y diversos cursos que tenemos para ti como <strong>Cisco</strong> con la que aprenderas el mundo de redes y como estamos conectados a travez de internet, <strong>Base de Datos</strong> donde aprenderas a manejar grandes cantidades de informacion y como estructurarlas, <strong>Laboratorio de Software</strong> donde podras desarrollar aplicaciones web y moviles con las tecnologias mas actuales del mercado y muchas cosas mas que te ayudaran a ser un gran ingeniero en tecnologias de la informacion e innovacion digital.
+                        </p>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                            Nuestro enfoque práctico te sumerge desde el primer semestre en el uso de herramientas profesionales, preparándote para los retos del mundo real
+                        </p>
+                        
+                        
+                    </div>
+                    
+                    <!-- Imagen destacada -->
+                    <div class="relative group">
+                        <!-- Elemento decorativo detrás -->
+                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 transition duration-500"></div>
+                        <div class="relative hover-zoom rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="/img/2.png" alt="Estudiantes colaborando" class="w-full h-full object-cover">
+                            <!-- Overlay informativo sobre la imagen -->
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
+                                <p class="font-bold text-lg">Aprendizaje Colaborativo</p>
+                                <p class="text-sm text-gray-300">Proyectos reales con metodología Scrum.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 2: El Laboratorio (Video Local de Stock) -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- Video Card (Estilo flotante) -->
-                <div class="bg-white p-2 rounded-2xl shadow-lg border border-slate-100 transform rotate-1 hover:rotate-0 transition duration-300">
-                    <div class="relative rounded-xl overflow-hidden shadow-inner aspect-video bg-black">
-                        <iframe 
-                            class="w-full h-full"
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=placeholder" 
-                            title="Video Laboratorio" 
-                            frameborder="0" 
-                            allow="autoplay; encrypted-media" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-slate-800">Recorrido 360°</h4>
-                        <p class="text-sm text-slate-500">Explora el laboratorio antes de tu visita.</p>
-                    </div>
+                <!-- 
+                   CONTENEDOR DE VIDEO: 
+                   Hemos reemplazado el iframe de Facebook por un video directo (MP4) para evitar el error de conexión.
+                   En un servidor real con dominio propio, el iframe de Facebook sí funcionaría.
+                -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black aspect-video group transform hover:scale-[1.02] transition duration-500">
+                    
+                    <!-- Video de Stock (Pexels) simulando ambiente de trabajo -->
+                    <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted playsinline>
+                        <source src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4" type="video/mp4">
+                        Tu navegador no soporta video HTML5.
+                    </video>
+
+                    <!-- Overlay oscuro para mejorar legibilidad del botón -->
+                    <div class="absolute inset-0 bg-black/30"></div>
+
+                    <!-- Botón Flotante "Ver en Facebook" -->
+                    <a href="https://www.facebook.com/share/v/17XAVfhYqG/" target="_blank" class="absolute bottom-6 left-6 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2 transition shadow-lg backdrop-blur-sm border border-blue-400/30">
+                        <i data-lucide="facebook" class="w-4 h-4 fill-current"></i> 
+                        Ver publicación original
+                    </a>
+
+                 
                 </div>
 
-                <!-- Lista de Normas (Estilo Checklist) -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200">
-                    <h3 class="font-bold text-slate-900 mb-6 flex items-center justify-between">
-                        Reglamento Rápido
-                        <i data-lucide="shield-check" class="text-green-500"></i>
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 font-bold text-xs">1</div>
-                            <p class="text-sm text-slate-600">Prohibido instalar software sin autorización previa del administrador de TI.</p>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 font-bold text-xs">2</div>
-                            <p class="text-sm text-slate-600">Mantener el área de trabajo limpia. No alimentos ni bebidas.</p>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xs">3</div>
-                            <p class="text-sm text-slate-600">Al finalizar la sesión, cerrar sesión y apagar monitores.</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-6 border-t border-slate-100">
-                        <a href="#" class="text-blue-600 text-sm font-semibold hover:underline flex items-center gap-1">
-                            Descargar reglamento completo (PDF)
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
+                <!-- Texto (Derecha) -->
+<div>
+    <span class="text-blue-600 font-bold tracking-wider text-xs uppercase mb-2 block">Instalaciones de Alto Impacto Tecnológico</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-4">Tu centro de innovación</h2>
 
-                <!-- Contacto Card Simple -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white relative overflow-hidden">
-                    <div class="relative z-10">
-                        <p class="text-slate-400 text-xs font-bold uppercase mb-1">Dudas o reportes</p>
-                        <h3 class="font-bold text-lg mb-4">¿Problemas con el equipo?</h3>
-                        <button class="bg-white text-slate-900 text-sm font-bold py-2 px-4 rounded-lg hover:bg-slate-100 transition">
-                            Abrir Ticket de Soporte
-                        </button>
-                    </div>
-                    <!-- Decoración fondo -->
-                    <i data-lucide="life-buoy" class="absolute -bottom-4 -right-4 w-32 h-32 text-slate-700/30"></i>
-                </div>
+    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+        En ITIID contarás con acceso exclusivo a nuestros <strong>Laboratorios de Desarrollo e Innovación</strong>, espacios diseñados para impulsar tu creatividad y prepararte para los retos reales de la industria tecnológica. Aquí trabajarás con equipos y entornos inspirados en los que utilizan las compañías líderes a nivel mundial.
+    </p>
+    
+    <div class="space-y-6">
+        
+        <div class="flex gap-4">
+            
+            <div>
+                <h4 class="font-bold text-slate-900">Hardware de Alto Rendimiento</h4>
+                <p class="text-sm text-slate-500 mt-1">
+                    Equipos de última generación para programación avanzada, simulación de sistemas y ejecución de proyectos sin límites.
+                </p>
+            </div>
+        </div>
+
+        <div class="flex gap-4">
+            
+            <div>
+                <h4 class="font-bold text-slate-900">Infraestructura de Conectividad Profesional</h4>
+                <p class="text-sm text-slate-500 mt-1">
+                    Red de alta velocidad, servidores especializados y entornos seguros para pruebas y despliegues como en una empresa real.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
             </div>
         </div>
-    </main>
+    </section>
 
-    <!-- Footer Simple -->
-    <footer class="bg-white border-t border-slate-200 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center text-slate-400 text-sm">
-            UPEN Labs &copy; 2024
+    <!-- SECCIÓN 3: Galería de Vida Estudiantil -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900">Conoce mas</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Más allá del aula, participarás en hackathones, conferencias tecnologicas y conexiones con el mundo profesional.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-[500px] md:grid-rows-2">
+                <!-- Imagen Principal Grande (Izquierda) -->
+                <div class="md:col-span-2 md:row-span-2 hover-zoom rounded-2xl overflow-hidden relative group">
+                    <img src="/img/jklashdajh.png" class="w-full h-full object-cover">
+                    
+                </div>
+                
+                <!-- Imagen Secundaria Superior (Derecha) -->
+                <div class="md:col-span-2 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative group">
+                    <img src="/img/adad.jpg" class="w-full h-full object-cover">
+                     <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                </div>
+
+                <!-- Imagen Terciaria Inferior (Derecha 1) -->
+                <div class="md:col-span-1 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative">
+                    <img src="/img/dadadaf.jpg" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Imagen Cuaternaria Inferior (Derecha 2) -->
+                <div class="md:col-span-1 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative bg-slate-900 flex items-center justify-center group cursor-pointer">
+                     <img src="/img/dads.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
+                     
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-white py-12 border-t-4 border-blue-600">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-black mb-4 tracking-tighter text-white">UPEN</h3>
+            <p class="text-slate-400 text-sm mb-8">Formando a los líderes tecnológicos del mañana.</p>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
+                <p>&copy; 2024 Universidad Privada del Estado.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition">Privacidad</a>
+                    <a href="#" class="hover:text-white transition">Cookies</a>
+                    <a href="#" class="hover:text-white transition">Mapa del sitio</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <!-- Inicializar Iconos -->
     <script>
-        lucide.createIcons();
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
     </script>
 </body>
 </html>
