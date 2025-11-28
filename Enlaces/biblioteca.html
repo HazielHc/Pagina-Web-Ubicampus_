@@ -1,43 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- METADATOS DEL DOCUMENTO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca - Ubicampus</title>
+    
+    <!-- HOJA DE ESTILOS EXTERNA -->
     <link rel="stylesheet" href="/css/styles.css">
-
-    <h1>BIBLIOTECA</h1>
-
-    <a href="/Bienvenida/menu.html"></a>
 </head>
 <body>
+    <!-- ENLACE DE REGRESO AL MENÚ PRINCIPAL -->
+    <a href="/Bienvenida/menu.html" class="sr-only">Volver al menú principal</a>
+    
+    <!-- TÍTULO PRINCIPAL VISIBLE -->
+    <h1 class="sr-only">BIBLIOTECA</h1>
+
+    <!-- ENCABEZADO PRINCIPAL -->
     <header class="bg-white shadow">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-gray-900">Biblioteca Central</h1>
+            <!-- TÍTULO VISIBLE DE LA BIBLIOTECA -->
+            <h2 class="text-3xl font-bold text-gray-900">Biblioteca Central</h2>
+            
+            <!-- MENÚ DE NAVEGACIÓN -->
             <nav>
                 <ul class="flex space-x-4">
+                    <!-- Enlace a página de inicio -->
                     <li><a href="/Bienvenida/menu.html" class="text-gray-700 hover:text-blue-500">Inicio</a></li>
+                    <!-- Enlace a áreas administrativas -->
                     <li><a href="/Enlaces/administrativos.html" class="text-gray-700 hover:text-blue-500">Áreas Administrativas</a></li>
+                    <!-- Enlace a laboratorios -->
                     <li><a href="/Enlaces/laboratorios.html" class="text-gray-700 hover:text-blue-500">Laboratorios</a></li>
+                    <!-- Enlace a edificios -->
                     <li><a href="/Enlaces/edificios.html" class="text-gray-700 hover:text-blue-500">Edificios</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="container mx-auto px-4 py-8">
+        <!-- SECCIÓN DE BIENVENIDA -->
         <section class="mb-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Bienvenido a la Biblioteca Central de Ubicampus</h2>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Bienvenido a la Biblioteca Central de Ubicampus</h3>
             <p class="text-gray-600 leading-relaxed mb-6">
-                Nuestra biblioteca es un espacio dedicado al aprendizaje, la investigación y el desarrollo académico. Contamos con una amplia colección de libros físicos y digitales, revistas especializadas, y recursos en línea para apoyar tus estudios.
+                Nuestra biblioteca es un espacio dedicado al aprendizaje, la investigación y el desarrollo académico. 
+                Contamos con una amplia colección de libros físicos y digitales, revistas especializadas, y recursos 
+                en línea para apoyar tus estudios.
             </p>
             <p class="text-gray-600 leading-relaxed">
-                Además, ofrecemos salas de estudio individuales y grupales, acceso a computadoras y Wi-Fi gratuito para que puedas trabajar cómodamente. Nuestro personal está siempre dispuesto a ayudarte a encontrar los recursos que necesitas.
+                Además, ofrecemos salas de estudio individuales y grupales, acceso a computadoras y Wi-Fi gratuito 
+                para que puedas trabajar cómodamente. Nuestro personal está siempre dispuesto a ayudarte a encontrar 
+                los recursos que necesitas.
             </p>
         </section>
 
+        <!-- SECCIÓN DE SERVICIOS -->
         <section>
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Servicios de la Biblioteca</h2>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Servicios de la Biblioteca</h3>
+            <!-- Lista de servicios disponibles -->
             <ul class="list-disc list-inside text-gray-600 leading-relaxed">
                 <li>Préstamo de libros físicos y digitales</li>
                 <li>Acceso a bases de datos académicas</li>
@@ -47,12 +68,12 @@
             </ul>
         </section>
     </main>
+
+    <!-- PIE DE PÁGINA -->
     <footer class="bg-gray-100 py-6 mt-12">
         <div class="container mx-auto px-4 text-center text-gray-600">
             &copy; 2024 Ubicampus. Todos los derechos reservados.
         </div>  
     </footer>
 </body>
-
-
 </html>
