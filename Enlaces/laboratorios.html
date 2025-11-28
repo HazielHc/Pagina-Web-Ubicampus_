@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- METADATOS DEL DOCUMENTO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubicampus - Laboratorios</title>
-    <!-- Tailwind CSS (Estilos) -->
+    
+    <!-- RECURSOS EXTERNOS -->
+    <!-- Tailwind CSS - Framework de estilos utility-first -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- ESTILOS PERSONALIZADOS -->
     <style>
-        /* Estilos personalizados puros (CSS) */
+        /* Establecer familia de fuentes del sistema */
         body {
             font-family: system-ui, -apple-system, sans-serif;
         }
         
-        /* Efecto Hover en las Tarjetas */
+        /* Efecto hover para imágenes en tarjetas - escala suave al 105% */
         .card-group:hover .card-image {
             transform: scale(1.05);
         }
         
-        /* Animación de la flecha en enlaces */
+        /* Animación de flecha en enlaces al hacer hover - desplazamiento a la derecha */
         .link-group:hover .arrow-icon {
             transform: translateX(4px);
         }
         
-        /* Ajustes de video */
+        /* Ajustes responsivos para videos - cubrir contenedor manteniendo proporción */
         video {
             width: 100%;
             height: 100%;
@@ -30,54 +35,52 @@
         }
     </style>
 </head>
+<body>
     <!-- --- BARRA DE NAVEGACIÓN (NAVBAR) --- -->
-<nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
-
+    <nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 
-                <!-- Logo UPEN (Modificado: Ahora es Enlace + Imagen) -->
+                <!-- LOGO DE LA UNIVERSIDAD -->
                 <div class="flex-shrink-0 flex items-center gap-2">
-                    <!-- 1. Aquí configuras el ENLACE (href) -->
+                    <!-- Enlace que lleva a la página de inicio -->
                     <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
-                        <!-- 2. Aquí configuras la IMAGEN (src) -->
-                        <!-- He puesto un generador de imágenes como ejemplo con el texto en azul. Pon la URL de tu logo real en 'src' -->
+                        <!-- Imagen del logo de la universidad -->
                         <img src="/img/logo-upen.png"  
                             alt="Logo UPEN" 
                             class="h-10 w-auto object-contain">
                     </a>
                 </div>
 
-                <!-- Menú Escritorio -->
+                <!-- MENÚ DE ESCRITORIO (oculto en móviles) -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <!-- Cambio de color a azul -->
-                    <!-- 2. ENLACES CENTRALES (Lo que pediste) -->
-                <nav class="hidden md:flex items-center space-x-8">
-                    <!-- Enlace ACTIVO (Inicio) -->
-                    <!-- href="nombre_de_tu_archivo.html" es la dirección a donde va el clic -->
-                    <a href="Inicio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">
-                        Inicio
-                    </a>
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <!-- Enlace activo - Página actual con indicador visual -->
+                        <a href="Inicio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">
+                            Inicio
+                        </a>
 
-                    <!-- Enlaces INACTIVOS (con efecto hover) -->
-                    <a href="https://upnay.edu.mx/oferta.html" target="_blank"  class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
-                        Oferta Educativa
-                    </a>
+                        <!-- Enlace a oferta educativa (abre en nueva pestaña) -->
+                        <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                            Oferta Educativa
+                        </a>
 
-                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
-                        Contacto
-                    </a>
-                </nav>
+                        <!-- Enlace de contacto (abre en nueva pestaña) -->
+                        <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                            Contacto
+                        </a>
+                    </nav>
                 </div>
 
-                <!-- Iconos y Botón de Acción -->
+                <!-- ICONOS Y BOTONES DE ACCIÓN (solo escritorio) -->
                 <div class="hidden md:flex items-center space-x-4">
+                    <!-- Botón de búsqueda con icono -->
                     <button class="text-gray-400 hover:text-blue-600 transition-colors">
                         <i data-lucide="search" class="w-5 h-5"></i>
                     </button>
                 </div>
 
-                <!-- Botón Menú Móvil -->
+                <!-- BOTÓN DE MENÚ MÓVIL (solo visible en móviles) -->
                 <div class="flex md:hidden items-center">
                     <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none p-2">
                         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -85,20 +88,19 @@
                 </div>
             </div>
         </div>
-
     </nav>
 
-    <!-- Main Content -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <!-- Breadcrumb -->
+        <!-- MIGA DE PAN (Breadcrumb) - Navegación secundaria -->
         <div class="mb-4">
             <a href="/Bienvenida/menu.html" class="text-blue-600 hover:underline font-medium text-sm flex items-center gap-1">
                 ← Menú de Áreas
             </a>
         </div>
 
-        <!-- Intro Section -->
+        <!-- SECCIÓN DE INTRODUCCIÓN -->
         <div class="mb-12">
             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Laboratorios</h1>
             <div class="max-w-3xl">
@@ -111,29 +113,36 @@
             </div>
         </div>
 
-        <!-- Cards Grid -->
+        <!-- GRID DE TARJETAS DE LABORATORIOS -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             
-            <!-- TARJETA 1: software - itiid-->
+            <!-- TARJETA 1: LABORATORIO DE SOFTWARE - ITIID -->
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full relative card-group">
                 <div class="relative h-48 overflow-hidden">
                     <img src="/img/R.jpg" alt="Laboratorios de Química" class="w-full h-full object-cover card-image transition-transform duration-500">
                     <div class="absolute top-4 left-4">
+                        <!-- Badge de categoría -->
                         <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide border border-blue-100">Innovacion</span>
                     </div>
+                    <!-- Botón de favoritos -->
                     <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2 rounded-full cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        </svg>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
                     <div class="flex items-center gap-3 mb-3">
-                        <!-- Icono Flask -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
+                        <!-- Icono de matraz/flask para laboratorio -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                            <path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/>
+                        </svg>
                         <h3 class="text-xl font-bold text-gray-900">Software - ITIID</h3>
                     </div>
                     <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
-                        Acceso  a los laboratorios principales donde se forman los futuros ingenieros en el desarrollo de nuevas tecnologias.
+                        Acceso a los laboratorios principales donde se forman los futuros ingenieros en el desarrollo de nuevas tecnologias.
                     </p>
+                    <!-- Enlace de acción a página específica del laboratorio -->
                     <a href="/Enlaces/lab.soft.html" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
                         Ir a Laboratorios 
                         <span class="text-lg leading-none arrow-icon transition-transform">→</span>
@@ -141,28 +150,33 @@
                 </div>
             </div>
 
-
-
-            <!-- TARJETA 2: agrooooo -->
+            <!-- TARJETA 2: LABORATORIO DE AGROBIOTECNOLOGÍA -->
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full relative card-group">
                 <div class="relative h-48 overflow-hidden">
                     <img src="/img/vvvvv.jpg" alt="Edificios y Aulas" class="w-full h-full object-cover card-image transition-transform duration-500">
                     <div class="absolute top-4 left-4">
+                        <!-- Badge de categoría -->
                         <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide border border-blue-100">Tecnologia</span>
                     </div>
+                    <!-- Botón de favoritos -->
                     <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2 rounded-full cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        </svg>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
                     <div class="flex items-center gap-3 mb-3">
-                        <!-- Icono Building -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+                        <!-- Icono de edificio para áreas de agrobiotecnología -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                            <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>
+                        </svg>
                         <h3 class="text-xl font-bold text-gray-900">Agrobiotecnologia</h3>
                     </div>
                     <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                         Descubre las áreas donde se trabaja y se cultiva un futuro mejor de la mano de la carrera de Agrobiotecnologia.
                     </p>
+                    <!-- Enlace de acción a página específica del laboratorio -->
                     <a href="/Enlaces/agro.html" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
                         Ir a Laboratorio 
                         <span class="text-lg leading-none arrow-icon transition-transform">→</span>
@@ -170,52 +184,56 @@
                 </div>
             </div>
 
-            <!-- TARJETA 3: Medicinaaa -->
+            <!-- TARJETA 3: LABORATORIO DE MEDICINA -->
             <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full relative card-group">
                 <div class="relative h-48 overflow-hidden">
                     <img src="/img/medi.jpg" alt="Centros de Cómputo" class="w-full h-full object-cover card-image transition-transform duration-500">
                     <div class="absolute top-4 left-4">
+                        <!-- Badge de categoría -->
                         <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide border border-blue-100">Ciencias</span>
                     </div>
+                    <!-- Botón de favoritos -->
                     <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2 rounded-full cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+                        </svg>
                     </div>
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
                     <div class="flex items-center gap-3 mb-3">
-                        <!-- Icono Monitor -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                        <!-- Icono de monitor para laboratorios de cómputo en medicina -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                            <rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/>
+                        </svg>
                         <h3 class="text-xl font-bold text-gray-900">Medicina</h3>
                     </div>
                     <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                         Con vocacion y pasion en nuestras manos, aprendemos en nuestro dia a dia para darte una atencion de calidad, con amor y corazon.
                     </p>
+                    <!-- Enlace de acción a página específica del laboratorio -->
                     <a href="/Enlaces/medicina.html" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
                         Ir a Laboratorio
                         <span class="text-lg leading-none arrow-icon transition-transform">→</span>
                     </a>
                 </div>
             </div>
-
         </div>
 
-        <!-- Info & Video Sections -->
+        <!-- SECCIONES DE INFORMACIÓN Y MULTIMEDIA -->
         <div class="space-y-12">
             <!-- SECCIÓN 1: VIDEO (Texto Izquierda, Video Derecha) -->
             <div class="py-12">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <!-- Texto -->
-<div class="flex flex-col justify-center order-2 md:order-1">
-    <h2 class="text-3xl font-serif text-gray-900 mb-4">Sirviendo a nuestra comunidad</h2>
-    <div class="w-16 h-1 bg-yellow-400 mb-6"></div>
-    <p class="text-gray-700 leading-relaxed text-lg mb-6">
-        El Portal Educativo impulsa iniciativas que trascienden el aula, ofreciendo talleres de divulgación científica, proyectos de sostenibilidad, ferias agrícolas, actividades culturales y colaboraciones con comunidades rurales y escuelas públicas, fortaleciendo el vínculo entre la agrobiotecnología y el desarrollo social.
-    </p>
-</div>
-
-                    <!-- Video (Youtube Embed) -->
+                    <!-- Texto descriptivo sobre servicio comunitario -->
+                    <div class="flex flex-col justify-center order-2 md:order-1">
+                        <h2 class="text-3xl font-serif text-gray-900 mb-4">Sirviendo a nuestra comunidad</h2>
+                        <div class="w-16 h-1 bg-yellow-400 mb-6"></div>
+                        <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                            El Portal Educativo impulsa iniciativas que trascienden el aula, ofreciendo talleres de divulgación científica, proyectos de sostenibilidad, ferias agrícolas, actividades culturales y colaboraciones con comunidades rurales y escuelas públicas, fortaleciendo el vínculo entre la agrobiotecnología y el desarrollo social.
+                        </p>
+                    </div>
+                    <!-- Video embebido de YouTube -->
                     <div class="order-1 md:order-2 h-64 md:h-80 rounded-xl overflow-hidden shadow-lg bg-black">
-                        <!-- CAMBIO REALIZADO: Agregada la clase 'w-full h-full' para asegurar el ajuste -->
                         <iframe 
                             class="w-full h-full"
                             src="https://www.youtube.com/embed/Z4tpJLzn_2U" 
@@ -231,11 +249,11 @@
             <!-- SECCIÓN 2: IMAGEN (Imagen Izquierda, Texto Derecha) -->
             <div class="py-12">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <!-- Imagen -->
+                    <!-- Imagen descriptiva -->
                     <div class="order-1 h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
                         <img src="/img/oooooo.jpg" alt="Sirviendo al país" class="w-full h-full object-cover">
                     </div>
-                    <!-- Texto -->
+                    <!-- Texto descriptivo sobre servicio al país -->
                     <div class="flex flex-col justify-center order-2">
                         <h2 class="text-3xl font-serif text-gray-900 mb-4">Sirviendo a nuestro país</h2>
                         <div class="w-16 h-1 bg-yellow-400 mb-6"></div>
@@ -245,17 +263,14 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
     </main>
 
-    <!-- Footer -->
+    <!-- PIE DE PÁGINA -->
     <footer class="bg-gray-900 text-white py-12 mt-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            
+            <!-- Footer listo para agregar contenido adicional -->
         </div>
     </footer>
-
 </body>
 </html>
