@@ -6,22 +6,27 @@
     <title>Menú UPEN - Campus Digital</title>
     
     <!-- 
-        Importamos Tailwind CSS para trabajar con clases utilitarias.
-        Permite dar estilos rápidos sin escribir CSS manualmente.
+        Importamos Tailwind CSS desde CDN.
+        Tailwind permite aplicar estilos mediante clases utilitarias
+        sin necesidad de crear archivos CSS adicionales.
     -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Importamos iconos Lucide (se generan con JavaScript) -->
+    <!-- 
+        Importamos los iconos Lucide.
+        Estos iconos se renderizan mediante JavaScript.
+    -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- 
-        Importamos dos fuentes: Inter (para UI moderna) 
-        y Merriweather (para títulos tipo serif).
+        Importamos las fuentes desde Google Fonts:
+        - Inter: usada como tipografía principal.
+        - Merriweather: usada en títulos con estilo serif.
     -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Fuente principal de toda la página */
+        /* Tipografía principal para todo el cuerpo */
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -31,46 +36,48 @@
             font-family: 'Merriweather', serif;
         }
 
-        /* Efecto de zoom suave en imágenes dentro de tarjetas */
+        /* Transición suave para imágenes dentro de tarjetas */
         .card-zoom-image {
             transition: transform 0.7s ease;
         }
 
-        /* Al pasar el cursor, hacer zoom a la imagen */
+        /* Efecto de zoom al pasar el mouse sobre la tarjeta */
         .group:hover .card-zoom-image {
             transform: scale(1.1);
         }
     </style>
 </head>
 
-<!-- Fondo gris muy suave y texto oscuro -->
+<!-- Fondo neutro y texto oscuro para mejor legibilidad -->
 <body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen">
 
-<!-- --- BARRA DE NAVEGACIÓN --- -->
+<!-- =========================================== -->
+<!-- BARRA DE NAVEGACIÓN -->
+<!-- =========================================== -->
 <nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
 
-    <!-- Contenedor principal del navbar -->
+    <!-- Contenedor principal de la barra -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
 
-            <!-- Logo de la universidad (envía a Inicio) -->
+            <!-- Logo de UPEN -->
             <div class="flex-shrink-0 flex items-center gap-2">
                 <a href="Inicio.html" class="block hover:opacity-90 transition-opacity">
                     <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
                 </a>
             </div>
 
-            <!-- Menú visible solo en escritorio (md o superior) -->
+            <!-- Menú versión escritorio -->
             <div class="hidden md:flex items-center space-x-8">
                 <nav class="hidden md:flex items-center space-x-8">
 
-                    <!-- Enlace seleccionado (Inicio) -->
+                    <!-- Enlace activo -->
                     <a href="Inicio.html" 
                        class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">
                         Inicio
                     </a>
 
-                    <!-- Otros enlaces -->
+                    <!-- Enlaces externos -->
                     <a href="https://upnay.edu.mx/oferta.html" target="_blank"
                        class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
                         Oferta Educativa
@@ -83,7 +90,7 @@
                 </nav>
             </div>
 
-            <!-- Botón Menú Móvil (solo aparece en pantallas pequeñas) -->
+            <!-- Botón de menú para móviles -->
             <div class="flex md:hidden items-center">
                 <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 p-2">
                     <!-- Icono hamburguesa -->
@@ -93,7 +100,7 @@
         </div>
     </div>
 
-    <!-- Menú móvil desplegable -->
+    <!-- Menú desplegable móvil -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
         <div class="px-4 pt-2 pb-6 space-y-2">
 
@@ -102,7 +109,7 @@
                 Inicio
             </a>
 
-            <!-- Otras opciones -->
+            <!-- Opciones secundarias -->
             <a href="https://upnay.edu.mx/oferta.html" target="_blank"
                class="block px-3 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                Oferta Educativa
@@ -113,7 +120,7 @@
                Contacto
             </a>
 
-            <!-- Botón adicional -->
+            <!-- Botón inferior -->
             <div class="mt-4 pt-4 border-t border-gray-100">
                 <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold shadow-md">
                     Portal Alumno
@@ -130,21 +137,21 @@
 
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
 
-    <!-- Sección con imágenes y texto tipo presentación -->
+    <!-- Sección tipo presentación con imágenes y texto -->
     <section class="mb-24 space-y-20">
 
-        <!-- Bloque 1: Imagen izquierda, texto derecha -->
+        <!-- Bloque 1 -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-            <!-- Imagen principal -->
+            <!-- Imagen -->
             <div class="relative group cursor-pointer overflow-hidden rounded-sm shadow-sm">
                 <img src="/img/ioioio.png" class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
 
-                <!-- Capa oscurecida para efecto visual -->
+                <!-- Capa decorativa -->
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
             </div>
 
-            <!-- Texto descriptivo -->
+            <!-- Texto -->
             <div class="flex flex-col justify-center">
                 <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-4">
                     Innovación que trasciende fronteras.
@@ -155,7 +162,7 @@
             </div>
         </div>
 
-        <!-- Bloque 2: Texto izquierda, imagen derecha -->
+        <!-- Bloque 2: texto + imagen -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
             <!-- Texto -->
@@ -181,7 +188,7 @@
             </div>
         </div>
 
-        <!-- Divisor decorativo -->
+        <!-- Divisor visual -->
         <div class="pt-8">
             <h2 class="font-serif text-4xl text-gray-900 mb-4">Cuidando del futuro</h2>
             <div class="h-1 w-full bg-black mb-2"></div>
@@ -194,7 +201,7 @@
     <!-- SECCIÓN DE TARJETAS -->
     <!-- ========================================== -->
 
-    <!-- Títulos superiores -->
+    <!-- Encabezado -->
     <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
         <div>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Áreas Principales</h2>
@@ -203,7 +210,7 @@
             </p>
         </div>
 
-        <!-- Botón ver mapa -->
+        <!-- Enlace a Google Maps -->
         <div>
             <a href="https://maps.app.goo.gl/YTy7d34XbAopbLAd6" target="_blank" 
                class="text-blue-700 font-semibold hover:text-blue-800 flex items-center gap-2">
@@ -219,29 +226,34 @@
         <!-- TARJETA 1: Laboratorios -->
         <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border transition-all duration-300 hover:-translate-y-1">
 
-            <!-- Imagen + like -->
+            <!-- Imagen + botón de favorito -->
             <div class="relative h-56 overflow-hidden">
                 <img src="/img/lab_pesado.jpg" class="w-full h-full object-cover card-zoom-image">
 
-                <!-- Botón corazon -->
+                <!-- Botón de corazón (solo aparece al pasar el mouse) -->
                 <button class="absolute top-4 right-4 p-2 bg-white/80 rounded-full opacity-0 group-hover:opacity-100">
                     <i data-lucide="heart" class="w-5 h-5"></i>
                 </button>
             </div>
 
-            <!-- Contenido -->
+            <!-- Contenido de la tarjeta -->
             <div class="p-6">
+
+                <!-- Categoría -->
                 <div class="flex items-center gap-2 mb-3 text-blue-600">
                     <i data-lucide="flask-conical" class="w-5 h-5"></i>
                     <span class="text-xs font-bold uppercase">Ingeniería & Ciencias</span>
                 </div>
 
+                <!-- Título -->
                 <h3 class="text-xl font-bold mb-3">Laboratorios</h3>
 
+                <!-- Descripción -->
                 <p class="text-gray-500 text-sm mb-6">
                     Acceso virtual a laboratorios donde se crea innovación.
                 </p>
 
+                <!-- Enlace -->
                 <div class="pt-4 border-t">
                     <a href="/Enlaces/laboratorios.html" class="text-blue-700 font-semibold hover:text-blue-900">
                         Explorar Laboratorios
@@ -250,33 +262,30 @@
             </div>
         </div>
 
-        <!-- (Las demás tarjetas siguen el mismo patrón, ya comentadas en estructura) -->
+        <!-- Más tarjetas pueden añadirse siguiendo la misma estructura -->
 
     </div>
 </main>
 
-<!-- ======================= -->
+<!-- ========================================== -->
 <!-- SCRIPTS -->
-<!-- ======================= -->
+<!-- ========================================== -->
 <script>
-    // Inicializa iconos Lucide
+    // Renderiza los iconos Lucide
     lucide.createIcons();
 
-    // Menú móvil
+    // Control del menú móvil
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
 
+    // Si ambos elementos existen, se habilita la funcionalidad
     if (btn && menu) {
         btn.addEventListener('click', () => {
 
-            // Alterna visibilidad
+            // Oculta o muestra el menú al presionar el botón
             menu.classList.toggle('hidden');
 
-            // SI CAMBIARAS EL ICONO:
-            // const icon = btn.querySelector('svg');
-            // icon.setAttribute('data-lucide', 'x'); // ejemplo
-
-            // Re-renderiza iconos en caso de que cambien
+            // Re-renderiza los iconos en caso de que cambien
             lucide.createIcons();
         });
     }
