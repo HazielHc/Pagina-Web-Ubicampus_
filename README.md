@@ -1,4 +1,4 @@
-(Codigos Dicumentados en carpetas "bienvenida, enlaces")
+(Codigos Documentados en carpetas "bienvenida, enlaces")
 
 
 **Página Web Ubicampus**
