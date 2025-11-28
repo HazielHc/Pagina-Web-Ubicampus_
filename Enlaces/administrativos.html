@@ -4,25 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubicampus - administrativos</title>
-    <!-- Tailwind CSS (Estilos) -->
+
+    <!-- Tailwind CSS: framework usado para los estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        /* Estilos personalizados puros (CSS) */
+        /* ----- ESTILOS PERSONALIZADOS ----- */
+
+        /* Fuente principal del sitio */
         body {
             font-family: system-ui, -apple-system, sans-serif;
         }
-        
-        /* Efecto Hover en las Tarjetas */
+
+        /* Efecto de zoom cuando pasas el cursor sobre las tarjetas */
         .card-group:hover .card-image {
             transform: scale(1.05);
         }
-        
-        /* Animación de la flecha en enlaces */
+
+        /* Animación: flecha que se mueve a la derecha al pasar el cursor */
         .link-group:hover .arrow-icon {
             transform: translateX(4px);
         }
-        
-        /* Ajustes de video */
+
+        /* Ajuste del video para que llene correctamente su contenedor */
         video {
             width: 100%;
             height: 100%;
@@ -30,268 +34,257 @@
         }
     </style>
 </head>
-    <!-- --- BARRA DE NAVEGACIÓN (NAVBAR) --- -->
+
+<!-- ================================================================== -->
+<!-- ----------------------- BARRA DE NAVEGACIÓN ----------------------- -->
+<!-- ================================================================== -->
+
 <nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center">
-                
-                <!-- Logo UPEN (Modificado: Ahora es Enlace + Imagen) -->
-                <div class="flex-shrink-0 flex items-center gap-2">
-                    <!-- 1. Aquí configuras el ENLACE (href) -->
-                    <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
-                        <!-- 2. Aquí configuras la IMAGEN (src) -->
-                        <!-- He puesto un generador de imágenes como ejemplo con el texto en azul. Pon la URL de tu logo real en 'src' -->
-                        <img src="/img/logo-upen.png"  
-                            alt="Logo UPEN" 
-                            class="h-10 w-auto object-contain">
-                    </a>
-                </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
 
-                <!-- Menú Escritorio -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <!-- Cambio de color a azul -->
-                    <!-- 2. ENLACES CENTRALES (Lo que pediste) -->
+            <!-- LOGO / ENLACE A INICIO -->
+            <div class="flex-shrink-0 flex items-center gap-2">
+                <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
+                    <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
+                </a>
+            </div>
+
+            <!-- MENÚ VERSIÓN ESCRITORIO -->
+            <div class="hidden md:flex items-center space-x-8">
+
                 <nav class="hidden md:flex items-center space-x-8">
-                    <!-- Enlace ACTIVO (Inicio) -->
-                    <!-- href="nombre_de_tu_archivo.html" es la dirección a donde va el clic -->
-                    <a href="Inicio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">
+
+                    <!-- Enlace activo (página actual) -->
+                    <a href="Inicio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium">
                         Inicio
                     </a>
 
-                    <!-- Enlaces INACTIVOS (con efecto hover) -->
-                    <a href="https://upnay.edu.mx/oferta.html" target="_blank"  class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                    <!-- Enlaces con hover -->
+                    <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Oferta Educativa
                     </a>
 
-                    <a href="alumnos.html" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                    <a href="alumnos.html" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Alumnos
                     </a>
 
-                    <a href="docentes.html" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                    <a href="docentes.html" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Docentes
                     </a>
 
-                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Contacto
                     </a>
+
                 </nav>
+            </div>
+
+            <!-- ÍCONOS DERECHA + BOTÓN PRINCIPAL -->
+            <div class="hidden md:flex items-center space-x-4">
+                <!-- Buscar -->
+                <button class="text-gray-400 hover:text-blue-600">
+                    <i data-lucide="search" class="w-5 h-5"></i>
+                </button>
+
+                <!-- Notificaciones -->
+                <button class="text-gray-400 hover:text-blue-600 relative">
+                    <i data-lucide="bell" class="w-5 h-5"></i>
+                    <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
+                </button>
+
+                <!-- Botón azul -->
+                <button class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2.5 rounded-full text-sm shadow-lg">
+                    Portal Alumno
+                </button>
+            </div>
+
+            <!-- MENÚ HAMBURGUESA (MÓVIL) -->
+            <div class="flex md:hidden items-center">
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MENÚ MÓVIL DESPLEGABLE -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+        <div class="px-4 pt-2 pb-6 space-y-2">
+
+            <!-- Enlaces versión móvil -->
+            <a href="" class="block px-3 py-3 bg-blue-50 text-blue-700 rounded-md">Inicio</a>
+            <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Oferta Educativa</a>
+            <a href="" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Alumnos</a>
+            <a href="#" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Docentes</a>
+            <a href="#" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Contacto</a>
+
+            <!-- Botón grande móvil -->
+            <div class="mt-4 pt-4 border-t border-gray-100">
+                <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold">
+                    Portal Alumno
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ================================================================== -->
+<!-- --------------------------- CONTENIDO ----------------------------- -->
+<!-- ================================================================== -->
+
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- Breadcrumb -->
+    <div class="mb-4">
+        <a href="/Bienvenida/menu.html" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
+            ← Menú de Áreas
+        </a>
+    </div>
+
+    <!-- Sección introductoria -->
+    <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Áreas Administrativas</h1>
+
+        <p class="text-lg text-gray-600 mb-4">
+            Bienvenido a la sección de Administrativos de Ubicampus. Aquí encontrarás información sobre los departamentos administrativos.
+        </p>
+
+        <p class="text-lg text-gray-600 font-medium border-l-4 border-green-500 pl-4 italic">
+            Estamos comprometidos contigo y contamos con laboratorios de alta calidad diseñados para ti.
+        </p>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- ------------------------ TARJETAS (CARDS) ------------------------ -->
+    <!-- ================================================================== -->
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+
+        <!-- ======= TARJETA 1 ======= -->
+        <div class="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-md card-group">
+
+            <!-- Imagen principal -->
+            <div class="relative h-48 overflow-hidden">
+                <img src="/img/e" alt="Laboratorios" class="w-full h-full object-cover card-image transition-transform">
+
+                <!-- Etiqueta superior izquierda -->
+                <div class="absolute top-4 left-4">
+                    <span class="bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-blue-800 border">
+                        ACADÉMICO
+                    </span>
                 </div>
 
-                <!-- Iconos y Botón de Acción -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <button class="text-gray-400 hover:text-blue-600 transition-colors">
-                        <i data-lucide="search" class="w-5 h-5"></i>
-                    </button>
-                    <button class="text-gray-400 hover:text-blue-600 transition-colors relative">
-                        <i data-lucide="bell" class="w-5 h-5"></i>
-                        <span class="absolute top-0 right-0 block h-2 w-2 rounded-full ring-2 ring-white bg-red-500 transform translate-x-1/2 -translate-y-1/2"></span>
-                    </button>
-                    <!-- Botón principal en azul -->
-                    <button class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-lg shadow-blue-700/20 transition-all transform hover:-translate-y-0.5">
-                        Portal Alumno
-                    </button>
+                <!-- Icono favorito -->
+                <div class="absolute top-4 right-4 bg-white/50 p-2 rounded-full cursor-pointer">
+                    <svg width="16" height="16" stroke="currentColor"><path d="M19 14c1.49..."/></svg>
+                </div>
+            </div>
+
+            <!-- Contenido -->
+            <div class="p-6 flex flex-col flex-grow">
+                <div class="flex items-center gap-3 mb-3">
+                    <h3 class="text-xl font-bold">Servicios Escolares</h3>
                 </div>
 
-                <!-- Botón Menú Móvil -->
-                <div class="flex md:hidden items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none p-2">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
-                </div>
+                <p class="text-gray-500 text-sm mb-6 flex-grow">
+                    Acceso a los laboratorios principales donde se forman los futuros ingenieros.
+                </p>
+
+                <a href="#" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
+                    visitar <span class="arrow-icon transition-transform">→</span>
+                </a>
             </div>
         </div>
 
-        <!-- Menú Desplegable Móvil (Oculto por defecto) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <!-- Enlaces del menú móvil en azul -->
-                <a href="" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium bg-blue-50 text-blue-700">Inicio</a>
-                <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Oferta Educativa</a>
-                <a href="" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Alumnos</a>
-                <a href="#" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Docentes</a>
-                <a href="#" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Contacto</a>
-                <div class="mt-4 pt-4 border-t border-gray-100">
-                    <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg text-center font-semibold shadow-md">
-                        Portal Alumno
-                    </button>
-                </div>
+        <!-- TARJETA 2 -->
+        <div class="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-md card-group">
+
+            <div class="relative h-48 overflow-hidden">
+                <img src="/img/nghsgakhjsgdg.jpg" class="w-full h-full object-cover card-image">
+                <span class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-blue-800 border">CAMPUS</span>
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+                <h3 class="text-xl font-bold">Agrobiotecnología</h3>
+                <p class="text-gray-500 text-sm mb-6">Áreas donde se cultiva el futuro de la agricultura.</p>
+                <a href="#" class="text-purple-700 font-bold text-sm link-group">Ir a Edificios →</a>
             </div>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        
-        <!-- Breadcrumb -->
-        <div class="mb-4">
-            <a href="/Bienvenida/menu.html" class="text-blue-600 hover:underline font-medium text-sm flex items-center gap-1">
-                ← Menú de Áreas
+        <!-- TARJETA 3 -->
+        <div class="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-md card-group">
+
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-159..." class="w-full h-full object-cover card-image">
+                <span class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-blue-800 border">
+                    TECNOLOGÍA
+                </span>
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+                <h3 class="text-xl font-bold">Medicina</h3>
+                <p class="text-gray-500 text-sm mb-6">
+                    Aprendemos día a día para brindar atención de calidad.
+                </p>
+
+                <a href="#" class="text-purple-700 font-bold text-sm link-group">Ir a Cómputo →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- ------------------ SECCIONES DE VIDEO E IMAGEN ------------------- -->
+    <!-- ================================================================== -->
+
+    <!-- VIDEO + TEXTO -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
+
+        <!-- Texto -->
+        <div>
+            <h2 class="text-3xl font-serif mb-4">Sirviendo a nuestra comunidad</h2>
+            <p class="text-gray-700 text-lg mb-6">
+                Eventos y programación ofrecidos por el Portal Educativo.
+            </p>
+            <a href="#" class="flex items-center gap-2 font-semibold hover:text-blue-700">
+                → Ver más información
             </a>
         </div>
 
-        <!-- Intro Section -->
-        <div class="mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Areas Administrativas</h1>
-            <div class="max-w-3xl">
-                <p class="text-lg text-gray-600 mb-4 leading-relaxed">
-                    Bienvenido a la sección de Administrativos de Ubicampus.
-                    Aquí encontrarás información sobre los diferentes departamentos administrativos disponibles en nuestro campus, sus ubicaciones, horarios de atención y los servicios que ofrecen para apoyarte en tus trámites y gestiones universitarias.
-                </p>
-                <p class="text-lg text-gray-600 font-medium border-l-4 border-green-500 pl-4 italic">
-                    Estamos comprometidos contigo, por ello contamos con laboratorios de alta calidad, destinados unica y exclusivamente para ti.
-                </p>
-            </div>
+        <!-- Video -->
+        <div class="h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Z4tpJLzn_2U" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- IMAGEN + TEXTO -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
+
+        <div class="h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <img src="/img/Imagen-.png" class="w-full h-full object-cover">
         </div>
 
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-            
-            <!-- TARJETA 1: software - itiid-->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full relative card-group">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="/img/e" alt="Laboratorios de Química" class="w-full h-full object-cover card-image transition-transform duration-500">
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide border border-blue-100">ACADÉMICO</span>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2 rounded-full cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                    </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <div class="flex items-center gap-3 mb-3">
-                        <!-- Icono Flask -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
-                        <h3 class="text-xl font-bold text-gray-900">Servicios Escolares</h3>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
-                        Acceso  a los laboratorios principales donde se forman los futuros ingenieros en el desarrollo de nuevas tecnologias.
-                    </p>
-                    <a href="#" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
-                        visitar
-                        <span class="text-lg leading-none arrow-icon transition-transform">→</span>
-                    </a>
-                </div>
-            </div>
-
-
-
-            <!-- TARJETA 2: agrooooo -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full relative card-group">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="/img/nghsgakhjsgdg.jpg" alt="Edificios y Aulas" class="w-full h-full object-cover card-image transition-transform duration-500">
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide border border-blue-100">CAMPUS</span>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2 rounded-full cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                    </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <div class="flex items-center gap-3 mb-3">
-                        <!-- Icono Building -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-                        <h3 class="text-xl font-bold text-gray-900">Agrobiotecnologia</h3>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
-                        Descubre las áreas donde se trabaja y se cultiva un futuro mejor de la mano de la carrera de Agrobiotecnologia.
-                    </p>
-                    <a href="#" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
-                        Ir a Edificios 
-                        <span class="text-lg leading-none arrow-icon transition-transform">→</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- TARJETA 3: Medicinaaa -->
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300 flex flex-col h-full relative card-group">
-                <div class="relative h-48 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Centros de Cómputo" class="w-full h-full object-cover card-image transition-transform duration-500">
-                    <div class="absolute top-4 left-4">
-                        <span class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide border border-blue-100">TECNOLOGÍA</span>
-                    </div>
-                    <div class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2 rounded-full cursor-pointer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-                    </div>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <div class="flex items-center gap-3 mb-3">
-                        <!-- Icono Monitor -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
-                        <h3 class="text-xl font-bold text-gray-900">Medicina</h3>
-                    </div>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
-                        Con vocacion y pasion en nuestras manos, aprendemos en nuestro dia a dia para darte una atencion de calidad, con amor y corazon.
-                    </p>
-                    <a href="#" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
-                        Ir a Cómputo 
-                        <span class="text-lg leading-none arrow-icon transition-transform">→</span>
-                    </a>
-                </div>
-            </div>
-
+        <div>
+            <h2 class="text-3xl font-serif mb-4">Sirviendo a nuestro país</h2>
+            <p class="text-gray-700 text-lg">
+                Nuestra institución está profundamente ligada al servicio público.
+            </p>
         </div>
 
-        <!-- Info & Video Sections -->
-        <div class="space-y-12">
-            <!-- SECCIÓN 1: VIDEO (Texto Izquierda, Video Derecha) -->
-            <div class="py-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <!-- Texto -->
-                    <div class="flex flex-col justify-center order-2 md:order-1">
-                        <h2 class="text-3xl font-serif text-gray-900 mb-4">Sirviendo a nuestra comunidad</h2>
-                        <div class="w-16 h-1 bg-yellow-400 mb-6"></div>
-                        <p class="text-gray-700 leading-relaxed text-lg mb-6">
-                            Eventos y programación ofrecidos por el Portal Educativo, incluyendo conferencias, eventos artísticos y culturales, y asociaciones con escuelas públicas.
-                        </p>
-                        <a href="#" class="flex items-center gap-2 text-gray-800 font-semibold hover:text-blue-700 transition-colors">
-                            <div class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center"><span class="text-sm">→</span></div>
-                            Ver más información
-                        </a>
-                    </div>
-                    <!-- Video (Youtube Embed) -->
-                    <div class="order-1 md:order-2 h-64 md:h-80 rounded-xl overflow-hidden shadow-lg bg-black">
-                         <!-- CAMBIO REALIZADO: Agregada la clase 'w-full h-full' para asegurar el ajuste -->
-                         <iframe 
-                            class="w-full h-full"
-                            src="https://www.youtube.com/embed/Z4tpJLzn_2U" 
-                            title="YouTube video player" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen
-                        ></iframe>
-                    </div>
-                </div>
-            </div>
+    </div>
 
-            <!-- SECCIÓN 2: IMAGEN (Imagen Izquierda, Texto Derecha) -->
-            <div class="py-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-                    <!-- Imagen -->
-                    <div class="order-1 h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-                        <img src="/img/Imagen-.png" alt="Sirviendo al país" class="w-full h-full object-cover">
-                    </div>
-                    <!-- Texto -->
-                    <div class="flex flex-col justify-center order-2">
-                        <h2 class="text-3xl font-serif text-gray-900 mb-4">Sirviendo a nuestro país</h2>
-                        <div class="w-16 h-1 bg-yellow-400 mb-6"></div>
-                        <p class="text-gray-700 leading-relaxed text-lg mb-6">
-                            Desde el periodo fundacional, nuestra institución ha compartido una historia profundamente entrelazada con el servicio público.
-                        </p>
-                    </div>
-                </div>
-            </div>
+</main>
 
-        </div>
+<!-- ================================================================== -->
+<!-- ----------------------------- FOOTER ------------------------------ -->
+<!-- ================================================================== -->
 
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 mt-20">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400">© 2023 Ubicampus UPEN. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+<footer class="bg-gray-900 text-white py-12 mt-20">
+    <div class="max-w-7xl mx-auto text-center">
+        <p class="text-gray-400">© 2023 Ubicampus UPEN. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
 </body>
 </html>
