@@ -6,49 +6,72 @@
     <title>Menú UPEN - Campus Digital</title>
     
     <!-- 
-        Importamos Tailwind CSS desde CDN.
-        Tailwind permite aplicar estilos mediante clases utilitarias
-        sin necesidad de crear archivos CSS adicionales.
+        Cargamos Tailwind CSS directamente desde la CDN oficial.
+        Este framework CSS basado en utilidades permite diseñar interfaces modernas sin escribir hojas de estilo manuales.
+        Cada clase representa una propiedad CSS específica (ej. flex, bg-gray-50, p-4),
+        lo que agiliza la creación de prototipos y mejora la mantenibilidad del proyecto.
+        La carga vía CDN es ideal para desarrollo rápido; en producción puede compilarse para reducir tamaño.
     -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- 
-        Importamos los iconos Lucide.
-        Estos iconos se renderizan mediante JavaScript.
+        Importación de Lucide Icons.
+        Lucide es una librería de iconos open-source que renderiza SVG mediante JavaScript.
+        Los iconos se identifican por el atributo “data-lucide” y se transforman automáticamente
+        en elementos <svg> escalables y accesibles.
+        Permite personalizar tamaño, trazo y color con clases Tailwind sin perder nitidez.
     -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- 
-        Importamos las fuentes desde Google Fonts:
-        - Inter: usada como tipografía principal.
-        - Merriweather: usada en títulos con estilo serif.
+        Google Fonts: carga de tipografías externas mediante enlace optimizado.
+        - Inter: fuente sin serif moderna, usada como tipografía base por su buena legibilidad en pantallas.
+        - Merriweather: fuente serif empleada en encabezados para aportar contraste visual y estilo editorial.
+        Google Fonts utiliza HTTP/2 para minimizar la latencia y servir los estilos rápidamente.
     -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* Tipografía principal para todo el cuerpo */
+        /* 
+            Se define Inter como la tipografía predeterminada del documento completo.
+            Esto asegura coherencia en todo el contenido y evita mezclar tipos de letra.
+        */
         body {
             font-family: 'Inter', sans-serif;
         }
 
-        /* Tipografía serif para títulos */
+        /* 
+            Se asigna Merriweather a cualquier elemento con la clase .font-serif.
+            Útil para títulos o subtítulos cuando se busca énfasis o un estilo más institucional.
+        */
         .font-serif {
             font-family: 'Merriweather', serif;
         }
 
-        /* Transición suave para imágenes dentro de tarjetas */
+        /*
+            Transición suave aplicada a imágenes dentro de tarjetas.
+            Permite animar la propiedad transform (escalado/zoom) sin saltos abruptos.
+        */
         .card-zoom-image {
             transition: transform 0.7s ease;
         }
 
-        /* Efecto de zoom al pasar el mouse sobre la tarjeta */
+        /*
+            Efecto hover: al pasar el cursor por un contenedor .group,
+            cualquier elemento interno con la clase .card-zoom-image se amplía.
+            Esto genera una animación estética tipo “zoom-in” utilizada en vitrinas o galerías.
+        */
         .group:hover .card-zoom-image {
             transform: scale(1.1);
         }
     </style>
 </head>
 
-<!-- Fondo neutro y texto oscuro para mejor legibilidad -->
+<!-- 
+    Se aplica un fondo gris claro neutro y un color de texto oscuro.
+    La clase flex-col permite estructurar el contenido en bloques verticales.
+    min-h-screen garantiza que la página siempre ocupe como mínimo la altura completa de la ventana.
+-->
 <body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen">
 
 <!-- =========================================== -->
@@ -56,28 +79,37 @@
 <!-- =========================================== -->
 <nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
 
-    <!-- Contenedor principal de la barra -->
+    <!-- 
+        Contenedor central con ancho máximo.
+        Utiliza breakpoints responsivos para ajustar los márgenes según el dispositivo.
+    -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
 
-            <!-- Logo de UPEN -->
+            <!-- 
+                Logotipo de UPEN colocado dentro de un enlace.
+                object-contain mantiene las proporciones del logo sin distorsión.
+            -->
             <div class="flex-shrink-0 flex items-center gap-2">
                 <a href="Inicio.html" class="block hover:opacity-90 transition-opacity">
                     <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
                 </a>
             </div>
 
-            <!-- Menú versión escritorio -->
+            <!-- 
+                Menú visible únicamente en pantallas medianas en adelante (md:flex).
+                Organizado en una fila horizontal mediante space-x-8.
+            -->
             <div class="hidden md:flex items-center space-x-8">
                 <nav class="hidden md:flex items-center space-x-8">
 
-                    <!-- Enlace activo -->
+                    <!-- Enlace activo con subrayado estilizado mediante borde inferior -->
                     <a href="Inicio.html" 
                        class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">
                         Inicio
                     </a>
 
-                    <!-- Enlaces externos -->
+                    <!-- Enlaces externos con hover animado -->
                     <a href="https://upnay.edu.mx/oferta.html" target="_blank"
                        class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
                         Oferta Educativa
@@ -90,21 +122,27 @@
                 </nav>
             </div>
 
-            <!-- Botón de menú para móviles -->
+            <!-- 
+                Botón visible únicamente en móviles (md:hidden).
+                Activa el menú móvil mediante JavaScript.
+            -->
             <div class="flex md:hidden items-center">
                 <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 p-2">
-                    <!-- Icono hamburguesa -->
+                    <!-- Icono hamburguesa generado por Lucide -->
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Menú desplegable móvil -->
+    <!-- 
+        Menú desplegable móvil, oculto inicialmente.
+        Se muestra o se esconde mediante la clase "hidden" manipulada por JavaScript.
+    -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
         <div class="px-4 pt-2 pb-6 space-y-2">
 
-            <!-- Opción activa -->
+            <!-- Elemento activo -->
             <a href="Inicio.html" class="block px-3 py-3 bg-blue-50 text-blue-700 rounded-md font-medium">
                 Inicio
             </a>
@@ -120,7 +158,7 @@
                Contacto
             </a>
 
-            <!-- Botón inferior -->
+            <!-- Botón de acción principal -->
             <div class="mt-4 pt-4 border-t border-gray-100">
                 <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold shadow-md">
                     Portal Alumno
@@ -137,21 +175,27 @@
 
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
 
-    <!-- Sección tipo presentación con imágenes y texto -->
+    <!-- 
+        Sección de presentación estilo "hero secundario".
+        Incluye bloques de imágenes y texto organizados en rejilla adaptable.
+    -->
     <section class="mb-24 space-y-20">
 
-        <!-- Bloque 1 -->
+        <!-- Bloque 1: imagen + texto -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-            <!-- Imagen -->
+            <!-- 
+                Contenedor con efecto hover elegante.
+                group permite animar elementos internos coordinadamente.
+            -->
             <div class="relative group cursor-pointer overflow-hidden rounded-sm shadow-sm">
                 <img src="/img/ioioio.png" class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
 
-                <!-- Capa decorativa -->
+                <!-- Capa oscura sutil para efecto visual -->
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
             </div>
 
-            <!-- Texto -->
+            <!-- Texto descriptivo acompañante -->
             <div class="flex flex-col justify-center">
                 <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-4">
                     Innovación que trasciende fronteras.
@@ -162,10 +206,10 @@
             </div>
         </div>
 
-        <!-- Bloque 2: texto + imagen -->
+        <!-- Bloque 2: texto + imagen (orden invertido en desktop) -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-            <!-- Texto -->
+            <!-- Texto principal -->
             <div class="flex flex-col justify-center order-2 lg:order-1">
                 <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-4">
                     Innovación y Desarrollo
@@ -182,13 +226,13 @@
                 </p>
             </div>
 
-            <!-- Imagen -->
+            <!-- Imagen decorativa -->
             <div class="relative overflow-hidden rounded-sm shadow-sm order-1 lg:order-2">
                 <img src="/img/iiiiiii.jpg" class="w-full h-80 lg:h-96 object-cover hover:scale-105 transition-transform duration-700">
             </div>
         </div>
 
-        <!-- Divisor visual -->
+        <!-- Separador visual de sección -->
         <div class="pt-8">
             <h2 class="font-serif text-4xl text-gray-900 mb-4">Cuidando del futuro</h2>
             <div class="h-1 w-full bg-black mb-2"></div>
@@ -201,7 +245,7 @@
     <!-- SECCIÓN DE TARJETAS -->
     <!-- ========================================== -->
 
-    <!-- Encabezado -->
+    <!-- Encabezado de sección -->
     <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
         <div>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Áreas Principales</h2>
@@ -210,7 +254,7 @@
             </p>
         </div>
 
-        <!-- Enlace a Google Maps -->
+        <!-- Enlace externo al mapa -->
         <div>
             <a href="https://maps.app.goo.gl/YTy7d34XbAopbLAd6" target="_blank" 
                class="text-blue-700 font-semibold hover:text-blue-800 flex items-center gap-2">
@@ -220,26 +264,29 @@
         </div>
     </div>
 
-    <!-- Rejilla de tarjetas -->
+    <!-- 
+        Rejilla de tarjetas responsive.
+        Aumenta columnas según el tamaño de pantalla (1→2→3).
+    -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         <!-- TARJETA 1: Laboratorios -->
         <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border transition-all duration-300 hover:-translate-y-1">
 
-            <!-- Imagen + botón de favorito -->
+            <!-- Imagen con overlay + botón -->
             <div class="relative h-56 overflow-hidden">
                 <img src="/img/lab_pesado.jpg" class="w-full h-full object-cover card-zoom-image">
 
-                <!-- Botón de corazón (solo aparece al pasar el mouse) -->
+                <!-- Botón de favorito que aparece solo en hover -->
                 <button class="absolute top-4 right-4 p-2 bg-white/80 rounded-full opacity-0 group-hover:opacity-100">
                     <i data-lucide="heart" class="w-5 h-5"></i>
                 </button>
             </div>
 
-            <!-- Contenido de la tarjeta -->
+            <!-- Contenido textual -->
             <div class="p-6">
 
-                <!-- Categoría -->
+                <!-- Categoría con icono -->
                 <div class="flex items-center gap-2 mb-3 text-blue-600">
                     <i data-lucide="flask-conical" class="w-5 h-5"></i>
                     <span class="text-xs font-bold uppercase">Ingeniería & Ciencias</span>
@@ -262,7 +309,10 @@
             </div>
         </div>
 
-        <!-- Más tarjetas pueden añadirse siguiendo la misma estructura -->
+        <!-- 
+            Más tarjetas pueden agregarse duplicando esta estructura
+            y ajustando contenido e imágenes según el área correspondiente.
+        -->
 
     </div>
 </main>
@@ -271,21 +321,31 @@
 <!-- SCRIPTS -->
 <!-- ========================================== -->
 <script>
-    // Renderiza los iconos Lucide
+    /* 
+        Lucide reemplaza todos los elementos HTML con atributo data-lucide
+        por sus versiones SVG equivalentes.
+        Esto permite manipular iconos vía CSS manteniendo su calidad vectorial.
+    */
     lucide.createIcons();
 
     // Control del menú móvil
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
 
-    // Si ambos elementos existen, se habilita la funcionalidad
+    /* 
+        Se verifica que los elementos existan antes de agregar listeners,
+        lo cual evita errores si el DOM no cargó completamente o si se reutiliza el script.
+    */
     if (btn && menu) {
         btn.addEventListener('click', () => {
 
-            // Oculta o muestra el menú al presionar el botón
+            /* 
+                Alternamos la clase 'hidden', que oculta o muestra el menú móvil.
+                Esto permite un despliegue responsivo sin animaciones complejas.
+            */
             menu.classList.toggle('hidden');
 
-            // Re-renderiza los iconos en caso de que cambien
+            // Re-renderiza los iconos cada vez que aparezca contenido dinámico
             lucide.createIcons();
         });
     }
