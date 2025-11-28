@@ -1,78 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Indica que el documento está escrito en HTML5 -->
     <meta charset="UTF-8">
+
+    <!-- Hace que el sitio sea responsivo, ajustándose a celulares, tablets y pantallas pequeñas -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en la pestaña del navegador -->
     <title>Médico Cirujano - UPEN</title>
-    <!-- Tailwind CSS -->
+
+    <!-- Importación de Tailwind CSS desde un CDN.
+         Tailwind sirve para aplicar clases predefinidas que facilitan el diseño sin escribir CSS manual -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+
+    <!-- Importación de la fuente "Inter" desde Google Fonts.
+         Esta fuente moderniza la apariencia del texto en toda la página -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
+
+    <!-- Importación de los iconos "Lucide".
+         Estos iconos se generan con JavaScript y se pueden insertar en la página fácilmente -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Estilos CSS personalizados para complementar Tailwind -->
     <style>
+        /* Aplica la fuente Inter como estilo global del sitio */
         body { font-family: 'Inter', sans-serif; }
+
+        /* Estilo aplicado al enlace activo del menú (subrayado azul) */
         .nav-link-active { color: #2563EB; position: relative; }
-        .nav-link-active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #2563EB; }
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px; left: 0;
+            width: 100%; height: 2px;
+            background-color: #2563EB;
+        }
+
+        /* Estilos generales de los enlaces del menú */
         .nav-link { color: #4B5563; transition: color 0.2s; }
         .nav-link:hover { color: #111827; }
-        
-        /* Animación suave para las imágenes */
-        .hover-zoom img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .hover-zoom:hover img { transform: scale(1.05); }
-        
-        /* Sombra de texto para mejor lectura sobre imágenes claras */
+
+        /* Animación de zoom al pasar el cursor sobre imágenes */
+        .hover-zoom img {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .hover-zoom:hover img {
+            transform: scale(1.05); /* Acerca ligeramente la imagen */
+        }
+
+        /* Sombra ligera para textos blancos colocados sobre imágenes */
         .text-shadow { text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
     </style>
 </head>
+
 <body class="bg-white text-slate-800">
 
-    <!-- --- BARRA DE NAVEGACIÓN (NAVBAR) --- -->
+<!-- ====================================================== -->
+<!--                     BARRA DE NAVEGACIÓN                -->
+<!-- ====================================================== -->
 <nav class="bg-blue-50/80 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <div class="flex justify-between h-20 items-center">
 
-            <!-- Logo UPEN -->
+            <!-- LOGO de UPEN, con link al inicio -->
             <div class="flex-shrink-0 flex items-center gap-2">
                 <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
-                    <!-- Nota: Asegúrate de tener el logo en esta ruta o cambiarla -->
-                    <img src="/img/logo-upen.png" onerror="this.src='https://via.placeholder.com/150x50?text=UPEN+Medicina'" alt="Logo UPEN" class="h-10 w-auto object-contain">
+                    <img src="/img/logo-upen.png"
+                         onerror="this.src='https://via.placeholder.com/150x50?text=UPEN+Medicina'"
+                         alt="Logo UPEN"
+                         class="h-10 w-auto object-contain">
                 </a>
             </div>
 
-            <!-- Menú Escritorio -->
+            <!-- MENÚ PRINCIPAL (solo se muestra en pantallas grandes) -->
             <div class="hidden md:flex items-center space-x-8">
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="/Enlaces/laboratorios.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">Atras</a>
-                    <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Oferta Educativa</a>
-                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Contacto</a>
+
+                    <!-- Enlace de regreso -->
+                    <a href="/Enlaces/laboratorios.html"
+                       class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium">
+                       Atras
+                    </a>
+
+                    <!-- Enlaces externos -->
+                    <a href="https://upnay.edu.mx/oferta.html" target="_blank"
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium">
+                       Oferta Educativa
+                    </a>
+
+                    <a href="https://upnay.edu.mx/dir.html" target="_blank"
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium">
+                       Contacto
+                    </a>
                 </nav>
             </div>
 
-            <!-- Iconos y Botón -->
-            <div class="hidden md:flex items-center space-x-4">
-                <!-- Espacio para iconos adicionales si se requieren -->
-            </div>
+            <!-- Espacio reservado para iconos (solo en desktop) -->
+            <div class="hidden md:flex items-center space-x-4"></div>
 
-            <!-- Botón Menú Móvil -->
+            <!-- BOTÓN PARA ABRIR EL MENÚ EN MÓVIL -->
             <div class="flex md:hidden items-center">
-                <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none p-2">
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 p-2">
+                    <!-- Icono del menú hamburguesa generado por Lucide -->
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Menú Móvil -->
+    <!-- MENÚ MÓVIL (oculto por defecto) -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
         <div class="px-4 pt-2 pb-6 space-y-2">
-            <a href="Inicio.html" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium bg-blue-50 text-blue-700">Inicio</a>
-            <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Oferta Educativa</a>
-            <a href="https://upnay.edu.mx/dir.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Contacto</a>
 
+            <!-- Enlaces visibles solo en móviles -->
+            <a href="Inicio.html" class="block w-full px-3 py-3 rounded-md bg-blue-50 text-blue-700">
+                Inicio
+            </a>
+
+            <a href="https://upnay.edu.mx/oferta.html" target="_blank"
+               class="block w-full px-3 py-3 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+               Oferta Educativa
+            </a>
+
+            <a href="https://upnay.edu.mx/dir.html" target="_blank"
+               class="block w-full px-3 py-3 rounded-md text-gray-600 hover:bg-blue-50 hover:text-blue-600">
+               Contacto
+            </a>
+
+            <!-- Botón especial dentro del menú móvil -->
             <div class="mt-4 pt-4 border-t border-gray-100">
-                <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg text-center font-semibold shadow-md">
+                <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg shadow-md">
                     Portal Alumno
                 </button>
             </div>
@@ -80,179 +139,224 @@
     </div>
 </nav>
 
+<!-- ====================================================== -->
+<!--                       SECCIÓN HERO                     -->
+<!-- ====================================================== -->
+<header class="relative h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
 
-    <!-- HERO HEADER: Imagen de Fondo con Título Resaltado -->
-    <header class="relative h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
-        <!-- Imagen de fondo (Hospital/Médicos) -->
-        <div class="absolute inset-0 z-0">
-            <img src="/img/ññññ.jpg" alt="Medicina y Salud" class="w-full h-full object-cover opacity-50">
-            <!-- Gradiente para mejorar lectura -->
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-white"></div>
-        </div>
+    <!-- Imagen de fondo del encabezado -->
+    <div class="absolute inset-0 z-0">
+        <img src="/img/ññññ.jpg" alt="Medicina y Salud"
+             class="w-full h-full object-cover opacity-50">
 
-        <div class="relative z-10 text-center max-w-4xl px-4 mt-10">
-            <span class="inline-block py-1 px-3 rounded-full bg-blue-600/20 border border-blue-400/30 backdrop-blur-md text-blue-200 text-xs font-bold tracking-widest uppercase mb-4 shadow-lg">
-                Excelencia Académica y Humana
+        <!-- Gradiente para oscurecer la imagen y mejorar la legibilidad del texto -->
+        <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-white"></div>
+    </div>
+
+    <!-- TEXTO PRINCIPAL DEL HERO -->
+    <div class="relative z-10 text-center max-w-4xl px-4 mt-10">
+
+        <!-- Texto arriba del título -->
+        <span class="inline-block py-1 px-3 rounded-full bg-blue-600/20 border border-blue-400/30 text-blue-200 text-xs font-bold uppercase">
+            Excelencia Académica y Humana
+        </span>
+
+        <!-- TÍTULO PRINCIPAL -->
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
+                Medicina
             </span>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-lg">
-            
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Medicina</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-slate-200 font-light max-w-2xl mx-auto mb-8 text-shadow">
-                Formando a los profesionales que cuidan la vida con ciencia, ética y pasión por servir.
-            </p>
-            
-            <div class="flex flex-wrap justify-center gap-4">
-                
-            </div>
-        </div>
-    </header>
+        </h1>
 
-    <!-- SECCIÓN 1: Descripción de la Carrera (Texto + Imagen) -->
-    <section class="py-20 relative -mt-20 z-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <!-- Texto Descriptivo -->
-                    <div>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-                            Más que una carrera, <br/>
-                            <span class="text-blue-600">una vocación de vida.</span>
-                        </h2>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                            La licenciatura en <strong>Médico Cirujano</strong> en UPEN está diseñada para formar líderes en salud capaces de enfrentar los desafíos clínicos y humanitarios actuales. No solo aprenderás <strong>anatomía y fisiología</strong>, sino que entenderás al paciente de manera integral, aprendiendo en nuestros laboratorios de la mano de especialistas reconocidos.
-                        </p>
-                        <p class="text-lg text-slate-600 leading-relaxed mb-8">
-                            Contamos con laboratorios de <strong>Simulación Clínica</strong> donde practicarás casos reales, anfiteatros para el estudio anatómico, y convenios con los mejores hospitales para tus campos clínicos e internado, asegurando que tu formación sea práctica desde los primeros semestres.
-                        </p>
-                    </div>
-                    
-                    <!-- Imagen destacada -->
-                    <div class="relative group">
-                        <!-- Elemento decorativo detrás -->
-                        <div class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 transition duration-500"></div>
-                        <div class="relative hover-zoom rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="/img/asdaddada.jpg" alt="Estudiantes de medicina" class="w-full h-full object-cover">
-                            <!-- Overlay informativo sobre la imagen -->
-                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-white">
-                                <p class="font-bold text-lg">Práctica Clínica Real</p>
-                                <p class="text-sm text-gray-300">Entrenamiento con simuladores de alta fidelidad.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Subtítulo descriptivo -->
+        <p class="text-xl md:text-2xl text-slate-200 text-shadow mt-4">
+            Formando a los profesionales que cuidan la vida con ciencia, ética y pasión por servir.
+        </p>
+    </div>
+</header>
 
-    <!-- SECCIÓN 2: El Laboratorio / Simuladores (Video Local de Stock) -->
-    <section class="py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- ====================================================== -->
+<!--                SECCIÓN DESCRIPTIVA PRINCIPAL           -->
+<!-- ====================================================== -->
+<section class="py-20 -mt-20 z-20 relative">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="bg-white rounded-3xl shadow-xl border p-12">
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                
-                
 
-                <!-- Texto (Derecha) -->
+                <!-- TEXTO EXPLICATIVO -->
                 <div>
-                    <span class="text-blue-600 font-bold tracking-wider text-xs uppercase mb-2 block">Tecnología Médica de Vanguardia</span>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Tu centro de simulación</h2>
+                    <h2 class="text-4xl font-bold mb-6">
+                        Más que una carrera, <br>
+                        <span class="text-blue-600">una vocación de vida.</span>
+                    </h2>
 
-                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                        En la Facultad de Medicina contarás con acceso exclusivo a nuestros <strong>Quirófanos Simulados y Laboratorios de Ciencias Básicas</strong>. Espacios estériles diseñados para perfeccionar tus habilidades quirúrgicas y de diagnóstico antes de interactuar con pacientes reales.
+                    <p class="text-lg text-slate-600 mb-6">
+                        La licenciatura en <strong>Médico Cirujano</strong> en UPEN está diseñada para formar líderes...
                     </p>
-                    
-                    <div class="space-y-6">
-                        
-                        <div class="flex gap-4">
-                            <div>
-                                <h4 class="font-bold text-slate-900">Simuladores de Alta Fidelidad</h4>
-                                <p class="text-sm text-slate-500 mt-1">
-                                    Maniquíes interactivos que respiran, presentan signos vitales y reponen a fármacos para escenarios de urgencias.
-                                </p>
-                            </div>
-                        </div>
 
-                        <div class="flex gap-4">
-                            <div>
-                                <h4 class="font-bold text-slate-900">Laboratorios</h4>
-                                <p class="text-sm text-slate-500 mt-1">
-                                    Equipamiento óptico avanzado y modelos anatómicos para comprender la estructura humana al detalle.
-                                </p>
-                            </div>
-                        </div>
+                    <p class="text-lg text-slate-600 mb-8">
+                        Contamos con laboratorios de <strong>Simulación Clínica</strong>...
+                    </p>
+                </div>
 
+                <!-- IMAGEN DECORATIVA CON OVERLAY -->
+                <div class="relative group">
+
+                    <!-- Efecto de brillo alrededor -->
+                    <div class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl opacity-20 blur-lg"></div>
+
+                    <!-- Imagen principal -->
+                    <div class="relative hover-zoom rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="/img/asdaddada.jpg" alt="Estudiantes de medicina" class="w-full">
+
+                        <!-- Overlay al pie de la imagen -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 p-6 text-white">
+                            <p class="font-bold text-lg">Práctica Clínica Real</p>
+                            <p class="text-sm text-gray-300">Entrenamiento con simuladores de alta fidelidad.</p>
+                        </div>
                     </div>
                 </div>
 
             </div>
-        </div>
-    </section>
 
-    <!-- SECCIÓN 3: Galería de Vida Estudiantil -->
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900">Vive la Medicina</h2>
-                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Más allá de los libros, participarás en brigadas de salud, congresos médicos y prácticas hospitalarias desde temprano.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================== -->
+<!--                 SECCIÓN LABORATORIO / SIMULACIÓN       -->
+<!-- ====================================================== -->
+<section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <!-- TEXTO DESCRIPTIVO -->
+            <div>
+                <span class="text-blue-600 font-bold text-xs uppercase">Tecnología Médica de Vanguardia</span>
+                <h2 class="text-3xl font-bold mb-4">Tu centro de simulación</h2>
+
+                <p class="text-lg text-slate-600 mb-6">
+                    En la Facultad de Medicina contarás con acceso a...
+                </p>
+
+                <!-- Lista de beneficios -->
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold">Simuladores de Alta Fidelidad</h4>
+                        <p class="text-sm text-slate-500 mt-1">
+                            Maniquíes interactivos que respiran...
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold">Laboratorios</h4>
+                        <p class="text-sm text-slate-500 mt-1">
+                            Equipamiento óptico avanzado...
+                        </p>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-[500px] md:grid-rows-2">
-                <!-- Imagen Principal Grande (Izquierda) - Cirugía/Práctica -->
-                <div class="md:col-span-2 md:row-span-2 hover-zoom rounded-2xl overflow-hidden relative group">
-                    <img src="/img/mmmmm.jpg" class="w-full h-full object-cover" alt="Práctica en quirófano">
-                </div>
-                
-                <!-- Imagen Secundaria Superior (Derecha) - Microscopio/Lab -->
-                <div class="md:col-span-2 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative group">
-                    <img src="/img/m.jpg" class="w-full h-full object-cover" alt="Laboratorio de investigación">
-                     <div class="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition"></div>
-                </div>
-
-                <!-- Imagen Terciaria Inferior (Derecha 1) - Estudiante estudiando -->
-                <div class="md:col-span-1 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative">
-                    <img src="/img/yyy.jpg" class="w-full h-full object-cover" alt="Estudio de anatomía">
-                </div>
-
-                <!-- Imagen Cuaternaria Inferior (Derecha 2) - Grupo de doctores -->
-                <div class="md:col-span-1 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative bg-slate-900 flex items-center justify-center group cursor-pointer">
-                     <img src="/img/dddd.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition" alt="Equipo médico">
-                </div>
-            </div>
         </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-white py-12 border-t-4 border-blue-600">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h3 class="text-2xl font-black mb-4 tracking-tighter text-white">UPEN</h3>
-            <p class="text-slate-400 text-sm mb-8">Formando a los profesionales de la salud que el mundo necesita.</p>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-white transition">Aviso de Privacidad</a>
-                    <a href="#" class="hover:text-white transition">Reglamento Escolar</a>
-                    <a href="#" class="hover:text-white transition">Mapa del sitio</a>
-                </div>
-            </div>
+    </div>
+</section>
+
+<!-- ====================================================== -->
+<!--                     GALERÍA VISUAL                     -->
+<!-- ====================================================== -->
+<section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+
+        <!-- Título de la galería -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold">Vive la Medicina</h2>
+            <p class="text-slate-500 mt-4">Participarás en brigadas, congresos y prácticas hospitalarias...</p>
         </div>
-    </footer>
 
-    <!-- Inicializar Iconos -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Manejo del menú móvil
-            const btn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
+        <!-- GRID DE IMÁGENES -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-[500px] md:grid-rows-2">
 
-            if(btn && menu){
-                btn.addEventListener('click', () => {
-                    menu.classList.toggle('hidden');
-                });
-            }
+            <div class="md:col-span-2 md:row-span-2 hover-zoom overflow-hidden rounded-2xl">
+                <img src="/img/mmmmm.jpg" class="w-full h-full object-cover">
+            </div>
 
-            if (window.lucide) {
-                lucide.createIcons();
-            }
-        });
-    </script>
+            <div class="md:col-span-2 hover-zoom overflow-hidden rounded-2xl relative">
+                <img src="/img/m.jpg" class="w-full h-full object-cover">
+            </div>
+
+            <div class="hover-zoom rounded-2xl overflow-hidden">
+                <img src="/img/yyy.jpg" class="w-full h-full object-cover">
+            </div>
+
+            <div class="hover-zoom rounded-2xl overflow-hidden">
+                <img src="/img/dddd.jpg" class="w-full h-full object-cover opacity-60">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ====================================================== -->
+<!--                          FOOTER                        -->
+<!-- ====================================================== -->
+<footer class="bg-slate-900 text-white py-12 border-t-4 border-blue-600">
+
+    <div class="max-w-7xl mx-auto px-4 text-center">
+
+        <!-- Nombre de la institución -->
+        <h3 class="text-2xl font-black tracking-tighter">UPEN</h3>
+
+        <p class="text-slate-400 text-sm mb-8">
+            Formando a los profesionales de la salud que el mundo necesita.
+        </p>
+
+        <!-- Enlaces del pie de página -->
+        <div class="border-t border-slate-800 pt-8 text-xs text-slate-500 flex justify-center gap-4">
+
+            <a href="#" class="hover:text-white">Aviso de Privacidad</a>
+            <a href="#" class="hover:text-white">Reglamento Escolar</a>
+            <a href="#" class="hover:text-white">Mapa del sitio</a>
+
+        </div>
+    </div>
+</footer>
+
+<!-- ====================================================== -->
+<!--                       SCRIPT DEL MENÚ                  -->
+<!-- ====================================================== -->
+<script>
+
+    /* Este código JavaScript se ejecuta cuando TODO el contenido del documento ha cargado */
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // Obtenemos el botón del menú móvil
+        const btn = document.getElementById('mobile-menu-btn');
+
+        // Obtenemos el contenedor del menú móvil
+        const menu = document.getElementById('mobile-menu');
+
+        // Si ambos elementos existen, entonces activamos la función de abrir/cerrar
+        if(btn && menu){
+            btn.addEventListener('click', () => {
+                /* 
+                    Agrega o remueve la clase 'hidden'.
+                    Si está visible, lo oculta.
+                    Si está oculto, lo muestra.
+                */
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        // Si la librería de iconos Lucide está cargada, inicializa todos los iconos
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    });
+</script>
+
 </body>
 </html>
+
