@@ -5,28 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubicampus - administrativos</title>
 
-    <!-- Tailwind CSS: framework usado para los estilos -->
+    <!-- 
+        Tailwind CSS:
+        Framework para aplicar estilos con clases utilitarias.
+        Se carga desde CDN para usarlo sin instalar nada.
+    -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* ----- ESTILOS PERSONALIZADOS ----- */
+        /* ========================================================== */
+        /* ----------------- ESTILOS PERSONALIZADOS ----------------- */
+        /* ========================================================== */
 
         /* Fuente principal del sitio */
         body {
             font-family: system-ui, -apple-system, sans-serif;
         }
 
-        /* Efecto de zoom cuando pasas el cursor sobre las tarjetas */
+        /* Efecto de zoom para imágenes dentro de las tarjetas */
         .card-group:hover .card-image {
             transform: scale(1.05);
         }
 
-        /* Animación: flecha que se mueve a la derecha al pasar el cursor */
+        /* Flecha animada que se mueve a la derecha al hacer hover */
         .link-group:hover .arrow-icon {
             transform: translateX(4px);
         }
 
-        /* Ajuste del video para que llene correctamente su contenedor */
+        /* Ajuste de videos o iframes para ocupar todo el contenedor */
         video {
             width: 100%;
             height: 100%;
@@ -35,6 +41,8 @@
     </style>
 </head>
 
+<body>
+
 <!-- ================================================================== -->
 <!-- ----------------------- BARRA DE NAVEGACIÓN ----------------------- -->
 <!-- ================================================================== -->
@@ -42,90 +50,104 @@
 <nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Contenedor principal del navbar -->
         <div class="flex justify-between h-20 items-center">
 
-            <!-- LOGO / ENLACE A INICIO -->
+            <!-- LOGO DEL SITIO -->
             <div class="flex-shrink-0 flex items-center gap-2">
                 <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
                     <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
                 </a>
             </div>
 
-            <!-- MENÚ VERSIÓN ESCRITORIO -->
+            <!-- MENÚ ESCRITORIO (oculto en móvil) -->
             <div class="hidden md:flex items-center space-x-8">
 
                 <nav class="hidden md:flex items-center space-x-8">
 
-                    <!-- Enlace activo (página actual) -->
-                    <a href="Inicio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium">
+                    <!-- Enlace activo -->
+                    <a href="Inicio.html" 
+                       class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium">
                         Inicio
                     </a>
 
-                    <!-- Enlaces con hover -->
-                    <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
+                    <!-- Enlaces normales con hover -->
+                    <a href="https://upnay.edu.mx/oferta.html" 
+                       target="_blank" 
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Oferta Educativa
                     </a>
 
-                    <a href="alumnos.html" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
+                    <a href="alumnos.html" 
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Alumnos
                     </a>
 
-                    <a href="docentes.html" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
+                    <a href="docentes.html" 
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Docentes
                     </a>
 
-                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
+                    <a href="https://upnay.edu.mx/dir.html" 
+                       target="_blank" 
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 pb-1">
                         Contacto
                     </a>
 
                 </nav>
             </div>
 
-            <!-- ÍCONOS DERECHA + BOTÓN PRINCIPAL -->
+            <!-- ÍCONOS Y BOTÓN DEL LADO DERECHO -->
             <div class="hidden md:flex items-center space-x-4">
-                <!-- Buscar -->
+
+                <!-- Icono de búsqueda -->
                 <button class="text-gray-400 hover:text-blue-600">
                     <i data-lucide="search" class="w-5 h-5"></i>
                 </button>
 
-                <!-- Notificaciones -->
+                <!-- Icono de campana con notificación -->
                 <button class="text-gray-400 hover:text-blue-600 relative">
                     <i data-lucide="bell" class="w-5 h-5"></i>
+
+                    <!-- Punto rojo de notificación -->
                     <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
                 </button>
 
-                <!-- Botón azul -->
+                <!-- Botón azul de acceso al portal del alumno -->
                 <button class="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2.5 rounded-full text-sm shadow-lg">
                     Portal Alumno
                 </button>
             </div>
 
-            <!-- MENÚ HAMBURGUESA (MÓVIL) -->
+            <!-- MENÚ HAMBURGUESA PARA CELULAR -->
             <div class="flex md:hidden items-center">
                 <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 p-2">
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
+
         </div>
     </div>
 
-    <!-- MENÚ MÓVIL DESPLEGABLE -->
+    <!-- MENÚ DESPLEGABLE (VERSIÓN MÓVIL) -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
         <div class="px-4 pt-2 pb-6 space-y-2">
 
-            <!-- Enlaces versión móvil -->
+            <!-- Enlaces móviles -->
             <a href="" class="block px-3 py-3 bg-blue-50 text-blue-700 rounded-md">Inicio</a>
             <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Oferta Educativa</a>
             <a href="" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Alumnos</a>
             <a href="#" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Docentes</a>
             <a href="#" class="block px-3 py-3 text-gray-600 hover:bg-blue-50">Contacto</a>
 
-            <!-- Botón grande móvil -->
+            <!-- Botón grande inferior -->
             <div class="mt-4 pt-4 border-t border-gray-100">
                 <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold">
                     Portal Alumno
                 </button>
             </div>
+
         </div>
     </div>
 </nav>
@@ -136,24 +158,32 @@
 
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-    <!-- Breadcrumb -->
+    <!-- Breadcrumb / ruta hacia atrás -->
     <div class="mb-4">
         <a href="/Bienvenida/menu.html" class="text-blue-600 hover:underline text-sm flex items-center gap-1">
             ← Menú de Áreas
         </a>
     </div>
 
-    <!-- Sección introductoria -->
+    <!-- Sección de introducción -->
     <div class="mb-12">
-        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">Áreas Administrativas</h1>
 
+        <!-- Título principal -->
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
+            Áreas Administrativas
+        </h1>
+
+        <!-- Descripción del área -->
         <p class="text-lg text-gray-600 mb-4">
-            Bienvenido a la sección de Administrativos de Ubicampus. Aquí encontrarás información sobre los departamentos administrativos.
+            Bienvenido a la sección de Administrativos de Ubicampus. 
+            Aquí encontrarás información sobre los departamentos administrativos.
         </p>
 
+        <!-- Texto resaltado -->
         <p class="text-lg text-gray-600 font-medium border-l-4 border-green-500 pl-4 italic">
             Estamos comprometidos contigo y contamos con laboratorios de alta calidad diseñados para ti.
         </p>
+
     </div>
 
     <!-- ================================================================== -->
@@ -162,14 +192,19 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
 
-        <!-- ======= TARJETA 1 ======= -->
+        <!-- ============================================================ -->
+        <!-- ====================== TARJETA 1 ============================ -->
+        <!-- ============================================================ -->
+
         <div class="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-md card-group">
 
-            <!-- Imagen principal -->
+            <!-- Imagen superior -->
             <div class="relative h-48 overflow-hidden">
-                <img src="/img/e" alt="Laboratorios" class="w-full h-full object-cover card-image transition-transform">
+                <img src="/img/e" 
+                     alt="Laboratorios" 
+                     class="w-full h-full object-cover card-image transition-transform">
 
-                <!-- Etiqueta superior izquierda -->
+                <!-- Etiqueta (categoría) -->
                 <div class="absolute top-4 left-4">
                     <span class="bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-blue-800 border">
                         ACADÉMICO
@@ -182,8 +217,9 @@
                 </div>
             </div>
 
-            <!-- Contenido -->
+            <!-- Contenido de la tarjeta -->
             <div class="p-6 flex flex-col flex-grow">
+
                 <div class="flex items-center gap-3 mb-3">
                     <h3 class="text-xl font-bold">Servicios Escolares</h3>
                 </div>
@@ -195,29 +231,51 @@
                 <a href="#" class="text-purple-700 font-bold text-sm flex items-center gap-1 link-group">
                     visitar <span class="arrow-icon transition-transform">→</span>
                 </a>
+
             </div>
         </div>
 
-        <!-- TARJETA 2 -->
+        <!-- ============================================================ -->
+        <!-- ====================== TARJETA 2 ============================ -->
+        <!-- ============================================================ -->
+
         <div class="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-md card-group">
 
             <div class="relative h-48 overflow-hidden">
-                <img src="/img/nghsgakhjsgdg.jpg" class="w-full h-full object-cover card-image">
-                <span class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-blue-800 border">CAMPUS</span>
+                <img src="/img/nghsgakhjsgdg.jpg" 
+                     class="w-full h-full object-cover card-image">
+
+                <!-- Categoría -->
+                <span class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-blue-800 border">
+                    CAMPUS
+                </span>
             </div>
 
             <div class="p-6 flex flex-col flex-grow">
                 <h3 class="text-xl font-bold">Agrobiotecnología</h3>
-                <p class="text-gray-500 text-sm mb-6">Áreas donde se cultiva el futuro de la agricultura.</p>
-                <a href="#" class="text-purple-700 font-bold text-sm link-group">Ir a Edificios →</a>
+
+                <p class="text-gray-500 text-sm mb-6">
+                    Áreas donde se cultiva el futuro de la agricultura.
+                </p>
+
+                <a href="#" class="text-purple-700 font-bold text-sm link-group">
+                    Ir a Edificios →
+                </a>
             </div>
+
         </div>
 
-        <!-- TARJETA 3 -->
+        <!-- ============================================================ -->
+        <!-- ====================== TARJETA 3 ============================ -->
+        <!-- ============================================================ -->
+
         <div class="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-md card-group">
 
             <div class="relative h-48 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-159..." class="w-full h-full object-cover card-image">
+                <img src="https://images.unsplash.com/photo-159..." 
+                     class="w-full h-full object-cover card-image">
+
+                <!-- Categoría -->
                 <span class="absolute top-4 left-4 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-blue-800 border">
                     TECNOLOGÍA
                 </span>
@@ -225,48 +283,65 @@
 
             <div class="p-6 flex flex-col flex-grow">
                 <h3 class="text-xl font-bold">Medicina</h3>
+
                 <p class="text-gray-500 text-sm mb-6">
                     Aprendemos día a día para brindar atención de calidad.
                 </p>
 
-                <a href="#" class="text-purple-700 font-bold text-sm link-group">Ir a Cómputo →</a>
+                <a href="#" class="text-purple-700 font-bold text-sm link-group">
+                    Ir a Cómputo →
+                </a>
             </div>
+
         </div>
+
     </div>
 
     <!-- ================================================================== -->
-    <!-- ------------------ SECCIONES DE VIDEO E IMAGEN ------------------- -->
+    <!-- -------------------- SECCIÓN DE VIDEO + TEXTO -------------------- -->
     <!-- ================================================================== -->
 
-    <!-- VIDEO + TEXTO -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
 
-        <!-- Texto -->
+        <!-- Columna de texto -->
         <div>
             <h2 class="text-3xl font-serif mb-4">Sirviendo a nuestra comunidad</h2>
+
             <p class="text-gray-700 text-lg mb-6">
                 Eventos y programación ofrecidos por el Portal Educativo.
             </p>
+
             <a href="#" class="flex items-center gap-2 font-semibold hover:text-blue-700">
                 → Ver más información
             </a>
         </div>
 
-        <!-- Video -->
+        <!-- Video embed de YouTube -->
         <div class="h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Z4tpJLzn_2U" allowfullscreen></iframe>
+            <iframe class="w-full h-full"
+                    src="https://www.youtube.com/embed/Z4tpJLzn_2U"
+                    allowfullscreen>
+            </iframe>
         </div>
+
     </div>
 
-    <!-- IMAGEN + TEXTO -->
+    <!-- ================================================================== -->
+    <!-- -------------------- SECCIÓN IMAGEN + TEXTO ---------------------- -->
+    <!-- ================================================================== -->
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-12">
 
+        <!-- Imagen con sombra -->
         <div class="h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-            <img src="/img/Imagen-.png" class="w-full h-full object-cover">
+            <img src="/img/Imagen-.png" 
+                 class="w-full h-full object-cover">
         </div>
 
+        <!-- Texto asociado -->
         <div>
             <h2 class="text-3xl font-serif mb-4">Sirviendo a nuestro país</h2>
+
             <p class="text-gray-700 text-lg">
                 Nuestra institución está profundamente ligada al servicio público.
             </p>
@@ -282,7 +357,9 @@
 
 <footer class="bg-gray-900 text-white py-12 mt-20">
     <div class="max-w-7xl mx-auto text-center">
-        <p class="text-gray-400">© 2023 Ubicampus UPEN. Todos los derechos reservados.</p>
+        <p class="text-gray-400">
+         
+        </p>
     </div>
 </footer>
 
