@@ -113,32 +113,6 @@
                 <p class="font-serif italic text-2xl text-gray-600 mt-4">"Aprende y conecta"</p>
             </div>
 
-            <!-- ============================================== -->
-            <!-- BUSCADOR INTELIGENTE (Antes era Login) -->
-            <!-- ============================================== -->
-            <div class="fade-in-up mt-12 max-w-xl mx-auto" style="animation-delay: 0.3s;">
-                <div class="bg-white/90 backdrop-blur-lg p-2 rounded-full shadow-2xl border border-white flex items-center focus-within:ring-4 focus-within:ring-blue-100 transition-all transform hover:scale-[1.02]">
-                    
-                    <!-- Icono de Búsqueda -->
-                    <div class="pl-4 text-ub-blue">
-                        <i class="ph ph-magnifying-glass text-2xl animate-pulse"></i>
-                    </div>
-                    
-                    <!-- Input del Buscador -->
-                    <input type="text" 
-                        id="searchInput"
-                        placeholder="Busca: Laboratorios, Biblioteca, Edificios..." 
-                        class="bg-transparent border-none outline-none w-full px-4 text-gray-800 placeholder-gray-500 font-medium h-12 text-lg"
-                        onkeypress="handleEnter(event)"
-                    >
-                    
-                    <!-- Botón de Acción -->
-                    <button onclick="realizarBusqueda()" 
-                            class="bg-ub-blue hover:bg-ub-dark text-white rounded-full w-14 h-12 flex items-center justify-center transition shadow-md group">
-                        <!-- ID AGREGADO PARA EVITAR ERROR DE NULL -->
-                        <i id="btnSearchIcon" class="ph ph-arrow-right font-bold text-lg group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                </div>
                 
                 <!-- Feedback visual de error/carga -->
                 <p id="searchFeedback" class="text-red-500 font-medium mt-3 hidden text-sm bg-white/80 inline-block px-3 py-1 rounded-full shadow-sm"></p>
@@ -176,86 +150,6 @@
         </div>
     </footer>
 
-    <!-- LÓGICA DE BÚSQUEDA -->
-    <script>
-        const API_URL = 'http://localhost:3000/buscar'; // Asegúrate que tu server.js corra en este puerto
-
-        // Detectar tecla Enter
-        function handleEnter(e) {
-            if(e.key === 'Enter') realizarBusqueda();
-        }
-
-        async function realizarBusqueda() {
-            const input = document.getElementById('searchInput');
-            const feedback = document.getElementById('searchFeedback');
-            // Usamos ID directo para evitar error si cambia la clase
-            const btnIcon = document.getElementById('btnSearchIcon'); 
-            const termino = input.value.trim();
-
-            if (!termino) return;
-
-            // Feedback visual de "Cargando..."
-            // Guardamos la clase original para restaurarla luego
-            const originalClass = btnIcon.className;
-            btnIcon.className = "ph ph-spinner animate-spin font-bold text-lg";
-
-            try {
-                const response = await fetch(`${API_URL}?q=${termino}`);
-                
-                if (!response.ok) throw new Error('Error de conexión');
-                
-                const data = await response.json();
-
-                if (data.encontrado) {
-                    navegarA(data.url);
-                } else {
-                    mostrarMensaje(`No encontramos resultados para "${termino}".`);
-                }
-
-            } catch (error) {
-                console.warn("Servidor no detectado, usando modo simulación local");
-                simulacionLocal(termino);
-            } finally {
-                // Restaurar icono original
-                btnIcon.className = "ph ph-arrow-right font-bold text-lg group-hover:translate-x-1 transition-transform";
-            }
-        }
-
-        function mostrarMensaje(msg) {
-            const feedback = document.getElementById('searchFeedback');
-            feedback.textContent = msg;
-            feedback.classList.remove('hidden');
-            setTimeout(() => feedback.classList.add('hidden'), 3000);
-        }
-
-        // Función segura para navegar (evita crash en entornos de prueba)
-        function navegarA(url) {
-            try {
-                window.location.href = url;
-            } catch (e) {
-                // Si falla (común en previews/blobs), mostramos alerta
-                alert(`Redireccionando a: ${url}`);
-                console.log(`Navegando a: ${url}`);
-            }
-        }
-
-        // Simulación por si falla la conexión a MySQL
-        function simulacionLocal(termino) {
-            const t = termino.toLowerCase();
-            let destino = '';
-
-            // Mapeo manual basado en tu menu.html
-            if (t.includes('lab') || t.includes('quimica')) destino = '/Enlaces/laboratorios.html';
-            else if (t.includes('edificio') || t.includes('aula')) destino = '/Enlaces/edificios.html';
-            else if (t.includes('admin') || t.includes('rectoria')) destino = '/Enlaces/administrativos.html';
-            else if (t.includes('biblio') || t.includes('libro')) destino = '/Enlaces/biblioteca.html';
-            
-            if (destino) {
-                navegarA(destino);
-            } else {
-                mostrarMensaje("Sin conexión (Demo: busca 'lab' o 'biblio')");
-            }
-        }
-    </script>
+  
 </body>
 </html>
