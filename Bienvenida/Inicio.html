@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+<!--
+    Archivo: Bienvenida/Inicio.html
+    Descripción: Página de inicio de la plataforma "Ubicampus".
+    Propósito: Presentación principal de la plataforma, acceso rápido a recursos (Moodle, página oficial),
+    y enlace al menú de usuario. Este archivo utiliza TailwindCSS desde CDN, fuentes de Google y Phosphor Icons.
+    Uso: Editar secciones principales (HEADER, HERO, SECCION SOBRE, FOOTER) para personalizar contenidos.
+-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,13 +40,13 @@
 </head>
 <body class="bg-white font-sans text-gray-900 overflow-x-hidden">
 
-    <!-- HEADER -->
+    <!-- CABECERA: Barra superior fija con logo, enlaces y acceso al menú -->
     <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-start">
         
         <!-- === 1. GRUPO IZQUIERDA (Logo + Enlaces) === -->
         <div class="flex flex-col md:flex-row md:items-center bg-white/95 backdrop-blur-md p-4 pr-8 rounded-br-xl shadow-sm md:shadow-none md:bg-transparent transition-all duration-300">
             
-            <!-- A. Logo Block -->
+            <!-- A. Bloque del logo: enlace a la página de inicio con marca y texto -->
             <a href="Inicio.html" class="flex items-center gap-3 mr-8 group">
                 <div class="bg-ub-blue text-white w-20 h-14 flex items-center justify-center font-bold text-xl rounded-lg shadow-lg group-hover:scale-105 transition duration-300 overflow-hidden">
                     <span>UPEN</span>
@@ -71,7 +78,7 @@
             </div> 
         </div> 
 
-        <!-- === 2. GRUPO DERECHA (Menú Azul) === -->
+        <!-- === 2. GRUPO DERECHO (Menú Azul) === -->
         <div class="bg-ub-blue text-white flex items-stretch h-16 md:h-20 shadow-2xl rounded-bl-xl overflow-hidden">
             <a href="menu.html" class="flex items-center gap-2 px-6 hover:bg-ub-dark transition border-r border-white/10">
                 <i class="ph ph-user-circle text-2xl"></i>
@@ -87,23 +94,23 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- SECCIÓN HERO (Presentación principal con imagen de fondo y títulos) -->
     <main class="relative w-full min-h-screen flex flex-col justify-center items-center text-center pt-20 pb-20 overflow-hidden">
         
-        <!-- Fondo -->
+        <!-- Fondo: imagen de fondo del campus (carga alternativa si falla) -->
         <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
             <img src="/img/Upen dron.jpeg" onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1470&auto=format&fit=crop'"
              alt="University Campus"
              class="w-full h-[90%] object-cover object-center opacity-90 blur-sm">
         </div>
 
-        <!-- Gradiente Blanco -->
+        <!-- Gradiente blanco para mejorar legibilidad del texto sobre la imagen -->
         <div class="absolute top-0 left-0 w-full h-[90%] z-10 bg-gradient-to-b from-white/30 via-white/60 to-white pointer-events-none"></div>
 
-        <!-- Contenido Principal -->
+        <!-- Contenido principal centrado: títulos, subtítulos y mensaje principal -->
         <div class="relative z-20 px-4 max-w-4xl mx-auto mt-10">
             
-            <!-- Títulos -->
+            <!-- Títulos: línea superior descriptiva, título principal y lema -->
             <div class="fade-in-up" style="animation-delay: 0.1s;">
                 <h2 class="font-sans font-light text-ub-blue uppercase tracking-[0.2em] text-sm mb-4">Plataforma Universitaria</h2>
                 <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-gray-900 tracking-tight leading-none mb-2">
@@ -114,20 +121,20 @@
             </div>
 
                 
-                <!-- Feedback visual de error/carga -->
+                <!-- Feedback visual de error/carga: elemento oculto por defecto, mostrar según sea necesario -->
                 <p id="searchFeedback" class="text-red-500 font-medium mt-3 hidden text-sm bg-white/80 inline-block px-3 py-1 rounded-full shadow-sm"></p>
             </div>
 
         </div>
 
-        <!-- Flecha Scroll -->
+        <!-- Indicador de scroll: flecha animada para sugerir desplazamiento -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce text-ub-blue/50">
             <i class="ph ph-caret-down text-3xl"></i>
         </div>
 
     </main>
 
-    <!-- SECCIÓN DE CONTENIDO (Sobre Ubicampus) -->
+    <!-- SECCIÓN DE CONTENIDO (Sobre Ubicampus): explicación breve del proyecto/plataforma -->
     <section class="relative z-20 bg-white px-6 pb-24">
         <div class="max-w-5xl mx-auto">
             <div class="border-l-4 border-ub-blue pl-8 py-2 mb-16">
@@ -142,7 +149,7 @@
         </div>
     </section>
 
-    <!-- FOOTER SIMPLE -->
+    <!-- PIE DE PÁGINA: información de marca y cierre -->
     <footer class="bg-ub-blue text-white py-12 text-center border-t border-white/10">
         <div class="flex items-center justify-center gap-3 mb-4 opacity-80">
             <i class="ph ph-student text-2xl"></i>
