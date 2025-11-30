@@ -5,80 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú UPEN - Campus Digital</title>
     
-    <!-- Importamos Tailwind CSS -->
+    <!-- 
+        Cargamos Tailwind CSS directamente desde la CDN oficial.
+        Este framework CSS basado en utilidades permite diseñar interfaces modernas sin escribir hojas de estilo manuales.
+        Cada clase representa una propiedad CSS específica (ej. flex, bg-gray-50, p-4),
+        lo que agiliza la creación de prototipos y mejora la mantenibilidad del proyecto.
+        La carga vía CDN es ideal para desarrollo rápido; en producción puede compilarse para reducir tamaño.
+    -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Importamos Lucide Icons -->
+    <!-- 
+        Importación de Lucide Icons.
+        Lucide es una librería de iconos open-source que renderiza SVG mediante JavaScript.
+        Los iconos se identifican por el atributo “data-lucide” y se transforman automáticamente
+        en elementos <svg> escalables y accesibles.
+        Permite personalizar tamaño, trazo y color con clases Tailwind sin perder nitidez.
+    -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Configuración de fuente (Inter para UI moderna, Merriweather para toque editorial) -->
+    <!-- 
+        Google Fonts: carga de tipografías externas mediante enlace optimizado.
+        - Inter: fuente sin serif moderna, usada como tipografía base por su buena legibilidad en pantallas.
+        - Merriweather: fuente serif empleada en encabezados para aportar contraste visual y estilo editorial.
+        Google Fonts utiliza HTTP/2 para minimizar la latencia y servir los estilos rápidamente.
+    -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
+        /* 
+            Se define Inter como la tipografía predeterminada del documento completo.
+            Esto asegura coherencia en todo el contenido y evita mezclar tipos de letra.
+        */
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        /* 
+            Se asigna Merriweather a cualquier elemento con la clase .font-serif.
+            Útil para títulos o subtítulos cuando se busca énfasis o un estilo más institucional.
+        */
         .font-serif {
             font-family: 'Merriweather', serif;
         }
-        /* Efecto suave para las transiciones de imagen */
+
+        /*
+            Transición suave aplicada a imágenes dentro de tarjetas.
+            Permite animar la propiedad transform (escalado/zoom) sin saltos abruptos.
+        */
         .card-zoom-image {
             transition: transform 0.7s ease;
         }
+
+        /*
+            Efecto hover: al pasar el cursor por un contenedor .group,
+            cualquier elemento interno con la clase .card-zoom-image se amplía.
+            Esto genera una animación estética tipo “zoom-in” utilizada en vitrinas o galerías.
+        */
         .group:hover .card-zoom-image {
             transform: scale(1.1);
         }
     </style>
 </head>
+
+<!-- 
+    Se aplica un fondo gris claro neutro y un color de texto oscuro.
+    La clase flex-col permite estructurar el contenido en bloques verticales.
+    min-h-screen garantiza que la página siempre ocupe como mínimo la altura completa de la ventana.
+-->
 <body class="bg-gray-50 text-slate-800 flex flex-col min-h-screen">
 
-<body class="bg-slate-50">
-
-<!-- --- BARRA DE NAVEGACIÓN (NAVBAR) --- -->
+<!-- =========================================== -->
+<!-- BARRA DE NAVEGACIÓN -->
+<!-- =========================================== -->
 <nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
+
+    <!-- 
+        Contenedor central con ancho máximo.
+        Utiliza breakpoints responsivos para ajustar los márgenes según el dispositivo.
+    -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-20 items-center">
 
-            <!-- Logo UPEN -->
+            <!-- 
+                Logotipo de UPEN colocado dentro de un enlace.
+                object-contain mantiene las proporciones del logo sin distorsión.
+            -->
             <div class="flex-shrink-0 flex items-center gap-2">
                 <a href="Inicio.html" class="block hover:opacity-90 transition-opacity">
                     <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
                 </a>
             </div>
 
-            <!-- Menú Escritorio -->
+            <!-- 
+                Menú visible únicamente en pantallas medianas en adelante (md:flex).
+                Organizado en una fila horizontal mediante space-x-8.
+            -->
             <div class="hidden md:flex items-center space-x-8">
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="Inicio.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">Inicio</a>
-                    <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Oferta Educativa</a>
-                    
-                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Contacto</a>
+
+                    <!-- Enlace activo con subrayado estilizado mediante borde inferior -->
+                    <a href="Inicio.html" 
+                       class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">
+                        Inicio
+                    </a>
+
+                    <!-- Enlaces externos con hover animado -->
+                    <a href="https://upnay.edu.mx/oferta.html" target="_blank"
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                        Oferta Educativa
+                    </a>
+
+                    <a href="https://upnay.edu.mx/dir.html" target="_blank"
+                       class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">
+                        Contacto
+                    </a>
                 </nav>
             </div>
 
-            <!-- Iconos y Botón -->
-            <div class="hidden md:flex items-center space-x-4">
-            </div>
-
-            <!-- Botón Menú Móvil -->
+            <!-- 
+                Botón visible únicamente en móviles (md:hidden).
+                Activa el menú móvil mediante JavaScript.
+            -->
             <div class="flex md:hidden items-center">
-                <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none p-2">
+                <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 p-2">
+                    <!-- Icono hamburguesa generado por Lucide -->
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Menú Móvil -->
+    <!-- 
+        Menú desplegable móvil, oculto inicialmente.
+        Se muestra o se esconde mediante la clase "hidden" manipulada por JavaScript.
+    -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
         <div class="px-4 pt-2 pb-6 space-y-2">
-            <a href="Inicio.html" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium bg-blue-50 text-blue-700">Inicio</a>
-            <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Oferta Educativa</a>
-          
-            <a href="https://upnay.edu.mx/dir.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Contacto</a>
 
+            <!-- Elemento activo -->
+            <a href="Inicio.html" class="block px-3 py-3 bg-blue-50 text-blue-700 rounded-md font-medium">
+                Inicio
+            </a>
+
+            <!-- Opciones secundarias -->
+            <a href="https://upnay.edu.mx/oferta.html" target="_blank"
+               class="block px-3 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+               Oferta Educativa
+            </a>
+
+            <a href="https://upnay.edu.mx/dir.html" target="_blank"
+               class="block px-3 py-3 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+               Contacto
+            </a>
+
+            <!-- Botón de acción principal -->
             <div class="mt-4 pt-4 border-t border-gray-100">
-                <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg text-center font-semibold shadow-md">
+                <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold shadow-md">
                     Portal Alumno
                 </button>
             </div>
@@ -87,255 +169,187 @@
 </nav>
 
 
-    <!-- --- CONTENIDO PRINCIPAL --- -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
+<!-- ========================================== -->
+<!-- CONTENIDO PRINCIPAL -->
+<!-- ========================================== -->
 
-        <!-- ========================================== -->
-        <!-- INICIO NUEVA SECCIÓN -->
-        <section class="mb-24 space-y-20">
-            
-            <!-- BLOQUE 1: Imagen Izquierda / Texto Derecha -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <!-- Imagen (estilo video) -->
-                <div class="relative group cursor-pointer overflow-hidden rounded-sm shadow-sm">
-                    <img src="/img/ioioio.png" 
-                         
-                        class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
-                    
-                    <!-- Overlay degradado oscuro -->
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
-                    
-                </div>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-grow w-full">
 
-                <!-- Texto -->
-                <div class="flex flex-col justify-center">
-                    <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-4 leading-tight">
-                        Innovación que trasciende fronteras.
-                    </h2>
-                    <p class="text-gray-600 leading-relaxed mb-4 text-lg">
-                        Somos una universidad que redefine la educación superior mediante la modalidad BIS. Nos comprometemos con el desarrollo integral formando profesionales bilingües capaces de competir en el mercado laboral global. Nuestra visión internacional actualiza constantemente nuestros programas y fomenta el intercambio cultural y científico. Todo ello cimentado en un enfoque sustentable que rompe barreras disciplinarias para promover la justicia social, la equidad y la calidad de vida. No solo educamos; formamos ciudadanos del mundo listos para transformar su entorno.
-                    </p>
-                    
-                </div>
+    <!-- 
+        Sección de presentación estilo "hero secundario".
+        Incluye bloques de imágenes y texto organizados en rejilla adaptable.
+    -->
+    <section class="mb-24 space-y-20">
+
+        <!-- Bloque 1: imagen + texto -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            <!-- 
+                Contenedor con efecto hover elegante.
+                group permite animar elementos internos coordinadamente.
+            -->
+            <div class="relative group cursor-pointer overflow-hidden rounded-sm shadow-sm">
+                <img src="/img/ioioio.png" class="w-full h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-105">
+
+                <!-- Capa oscura sutil para efecto visual -->
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
             </div>
 
-            <!-- BLOQUE 2: Texto Izquierda / Imagen Derecha -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                <!-- Texto (con orden 2 en móvil, 1 en desktop) -->
-                <div class="flex flex-col justify-center order-2 lg:order-1">
-                    <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-4 leading-tight">
-                        Innovación y Desarrollo
-                    </h2>
-                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
-                        Desde su fundación, la UPEN ha compartido una <span class="font-semibold text-gray-900 border-b border-gray-300 hover:border-blue-600 transition-colors cursor-pointer">historia profundamente entrelazada</span> con el desarrollo tecnológico. Hoy, el número de proyectos de investigación va en aumento.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        Programas como las <span class="font-semibold text-gray-900 underline decoration-1 decoration-gray-300">Becas de Excelencia</span> apoyan a estudiantes a continuar con sus estudios cada nuevo cuatrimestre. Además, la UPEN fomenta la participación en eventos académicos y culturales, promoviendo el desarrollo integral de sus alumnos.
-                    </p>
-                    
-
-                </div>
-
-                <!-- Imagen (orden 1 en móvil, 2 en desktop) -->
-                <div class="relative overflow-hidden rounded-sm shadow-sm order-1 lg:order-2">
-                    <img src="/img/iiiiiii.jpg" 
-                      
-                        class="w-full h-80 lg:h-96 object-cover hover:scale-105 transition-transform duration-700">
-                </div>
-            </div>
-
-            <!-- Título Divisor (Estilo "Caring for others") -->
-            <div class="pt-8">
-                <h2 class="font-serif text-4xl text-gray-900 mb-4">Cuidando del futuro</h2>
-                <div class="h-1 w-full bg-black mb-2"></div>
-                <div class="h-px w-full bg-gray-300"></div>
-            </div>
-
-        </section>
-        <!-- ========================================== -->
-        <!-- FIN NUEVA SECCIÓN -->
-        <!-- ========================================== -->
-
-        
-        <!-- Encabezado de Sección Original -->
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight font-sans">
-                    Áreas Principales
+            <!-- Texto descriptivo acompañante -->
+            <div class="flex flex-col justify-center">
+                <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-4">
+                    Innovación que trasciende fronteras.
                 </h2>
-                <p class="mt-3 text-gray-500 max-w-2xl text-lg">
-                    Explora las instalaciones y servicios disponibles en tu campus universitario.
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    Somos una universidad que redefine la educación superior mediante la modalidad BIS...
                 </p>
             </div>
-            
-            <!-- Enlace "Ver todo" -->
-            <div class="flex items-center gap-1">
-                <a href="https://maps.app.goo.gl/YTy7d34XbAopbLAd6" target="_blank" class="text-blue-700 font-semibold hover:text-blue-800 flex items-center gap-2 text-sm px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors">
-                    Ver mapa
-                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                </a>
+        </div>
+
+        <!-- Bloque 2: texto + imagen (orden invertido en desktop) -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            <!-- Texto principal -->
+            <div class="flex flex-col justify-center order-2 lg:order-1">
+                <h2 class="font-serif text-3xl md:text-4xl text-gray-900 mb-4">
+                    Innovación y Desarrollo
+                </h2>
+
+                <p class="text-gray-600 leading-relaxed text-lg mb-6">
+                    Desde su fundación, la UPEN ha compartido una 
+                    <span class="font-semibold text-gray-900 border-b border-gray-300">historia profundamente entrelazada</span>
+                    con el desarrollo tecnológico.
+                </p>
+
+                <p class="text-gray-600 leading-relaxed mb-6">
+                    Programas como las <span class="font-semibold text-gray-900 underline">Becas de Excelencia</span> apoyan a estudiantes...
+                </p>
+            </div>
+
+            <!-- Imagen decorativa -->
+            <div class="relative overflow-hidden rounded-sm shadow-sm order-1 lg:order-2">
+                <img src="/img/iiiiiii.jpg" class="w-full h-80 lg:h-96 object-cover hover:scale-105 transition-transform duration-700">
             </div>
         </div>
 
-        <!-- Rejilla de Tarjetas (Grid) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-           <!-- TARJETA 1: Laboratorios -->
-<div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-    <div class="relative h-56 overflow-hidden">
-        <img src="/img/lab_pesado.jpg" alt="Laboratorios" class="w-full h-full object-cover card-zoom-image">
-        
-        <button class="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 hover:bg-white transition-all shadow-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">
-            <i data-lucide="heart" class="w-5 h-5"></i>
-        </button>
-
-        <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
-    </div>
-
-    <div class="p-6">
-        <div class="flex items-center gap-2 mb-3 text-blue-600">
-            <i data-lucide="flask-conical" class="w-5 h-5"></i>
-            <span class="text-xs font-bold uppercase tracking-wide opacity-90">Ingeniería & Ciencias</span>
+        <!-- Separador visual de sección -->
+        <div class="pt-8">
+            <h2 class="font-serif text-4xl text-gray-900 mb-4">Cuidando del futuro</h2>
+            <div class="h-1 w-full bg-black mb-2"></div>
+            <div class="h-px w-full bg-gray-300"></div>
         </div>
 
-        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Laboratorios</h3>
+    </section>
 
-        <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">
-            Acceso virtual a laboratorios, lugar donde se forma y crea un futuro de Innovación y pasion.
-        </p>
+    <!-- ========================================== -->
+    <!-- SECCIÓN DE TARJETAS -->
+    <!-- ========================================== -->
 
-        <div class="pt-4 border-t border-gray-50">
-            <a href="/Enlaces/laboratorios.html"
-               class="inline-flex items-center text-blue-700 font-semibold text-sm hover:text-blue-900 transition-colors group-hover:underline decoration-2 underline-offset-4">
-                Explorar Laboratorios
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"></i>
+    <!-- Encabezado de sección -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+        <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Áreas Principales</h2>
+            <p class="mt-3 text-gray-500 text-lg">
+                Explora las instalaciones y servicios del campus.
+            </p>
+        </div>
+
+        <!-- Enlace externo al mapa -->
+        <div>
+            <a href="https://maps.app.goo.gl/YTy7d34XbAopbLAd6" target="_blank" 
+               class="text-blue-700 font-semibold hover:text-blue-800 flex items-center gap-2">
+                Ver mapa
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
         </div>
     </div>
-</div>
 
+    <!-- 
+        Rejilla de tarjetas responsive.
+        Aumenta columnas según el tamaño de pantalla (1→2→3).
+    -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- TARJETA 2: Edificios -->
-            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-                <div class="relative h-56 overflow-hidden">
-                    <!-- Imagen Placeholder de Edificio -->
-                    <img src="/img/edificio luz.png" alt="Edificios" class="w-full h-full object-cover card-zoom-image">
-                    
-                    <button class="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 hover:bg-white transition-all shadow-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">
-                        <i data-lucide="heart" class="w-5 h-5"></i>
-                    </button>
-                    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
+        <!-- TARJETA 1: Laboratorios -->
+        <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border transition-all duration-300 hover:-translate-y-1">
+
+            <!-- Imagen con overlay + botón -->
+            <div class="relative h-56 overflow-hidden">
+                <img src="/img/lab_pesado.jpg" class="w-full h-full object-cover card-zoom-image">
+
+                <!-- Botón de favorito que aparece solo en hover -->
+                <button class="absolute top-4 right-4 p-2 bg-white/80 rounded-full opacity-0 group-hover:opacity-100">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Contenido textual -->
+            <div class="p-6">
+
+                <!-- Categoría con icono -->
+                <div class="flex items-center gap-2 mb-3 text-blue-600">
+                    <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                    <span class="text-xs font-bold uppercase">Ingeniería & Ciencias</span>
                 </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 mb-3 text-blue-600">
-                        <i data-lucide="building-2" class="w-5 h-5"></i>
-                        <span class="text-xs font-bold uppercase tracking-wide opacity-90">Ingenieria y Ciencias</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Edificios y Aulas</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">Descubre las áreas donde se trabaja por un futuro profesional. Mapas y horarios de clase.</p>
-                      <div class="pt-4 border-t border-gray-50">
-            <a href="/Enlaces/edificios.html"
-               class="inline-flex items-center text-blue-700 font-semibold text-sm hover:text-blue-900 transition-colors group-hover:underline decoration-2 underline-offset-4">
-                Explorar Edificios
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"></i>
-            </a>
+
+                <!-- Título -->
+                <h3 class="text-xl font-bold mb-3">Laboratorios</h3>
+
+                <!-- Descripción -->
+                <p class="text-gray-500 text-sm mb-6">
+                    Acceso virtual a laboratorios donde se crea innovación.
+                </p>
+
+                <!-- Enlace -->
+                <div class="pt-4 border-t">
+                    <a href="/Enlaces/laboratorios.html" class="text-blue-700 font-semibold hover:text-blue-900">
+                        Explorar Laboratorios
+                    </a>
+                </div>
+            </div>
         </div>
-                </div>
-            </div>
 
-            <!-- TARJETA 3: Administrativas -->
-            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-                <div class="relative h-56 overflow-hidden">
-                    <!-- Imagen Placeholder de Oficina -->
-                    <img src="/img/oficina 2.png" alt="Administrativas" class="w-full h-full object-cover card-zoom-image">
-                   
-                    <button class="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 hover:bg-white transition-all shadow-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">
-                        <i data-lucide="heart" class="w-5 h-5"></i>
-                    </button>
-                    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 mb-3 text-blue-600">
-                        <i data-lucide="users" class="w-5 h-5"></i>
-                        <span class="text-xs font-bold uppercase tracking-wide opacity-90">Control Escolar</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Áreas Administrativas</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">Encuentra las oficinas administrativas, rectoría y apoyo estudiantil para trámites.</p>
-                    <div class="pt-4 border-t border-gray-50">
-                        <a href="/Enlaces/administrativos.html"
-               class="inline-flex items-center text-blue-700 font-semibold text-sm hover:text-blue-900 transition-colors group-hover:underline decoration-2 underline-offset-4">
-                Explorar Administrativas
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"></i>
-            </a>
-                    </div>
-                </div>
-            </div>
+        <!-- 
+            Más tarjetas pueden agregarse duplicando esta estructura
+            y ajustando contenido e imágenes según el área correspondiente.
+        -->
 
-            <!-- TARJETA 4: Biblioteca -->
-            <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
-                <div class="relative h-56 overflow-hidden">
-                    <img src="/img/biblioteca.png" alt="Biblioteca" class="w-full h-full object-cover card-zoom-image">
-                  
-                    <button class="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full text-gray-400 hover:text-red-500 hover:bg-white transition-all shadow-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 duration-300">
-                        <i data-lucide="heart" class="w-5 h-5"></i>
-                    </button>
-                    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-2 mb-3 text-blue-600">
-                        <i data-lucide="book-open" class="w-5 h-5"></i>
-                        <span class="text-xs font-bold uppercase tracking-wide opacity-90">Abierto 7:00 am - 5:00pm</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Biblioteca</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-2">Descubre nuestra areas de descanso y biblioteca.</p>
-                    <div class="pt-4 border-t border-gray-50">
-                        <a href="/Enlaces/biblioteca.html"
-                        <span class="inline-flex items-center text-blue-700 font-semibold text-sm hover:text-blue-900 transition-colors group-hover:underline decoration-2 underline-offset-4">
-                            Ir a Biblioteca
-                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
+    </div>
+</main>
 
-            <!-- TARJETA 5: Ver Más (Relleno) -->
-            <div class="bg-gray-50 rounded-2xl border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-6 text-center hover:bg-blue-50 hover:border-blue-300 transition-colors cursor-pointer group h-full min-h-[300px] md:min-h-auto">
-                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 group-hover:shadow-md transition-all duration-300">
-                    <i data-lucide="arrow-right" class="w-8 h-8 text-blue-600"></i>
-                </div>
-                <h3 class="text-lg font-bold text-gray-700 group-hover:text-blue-800">Proximamente</h3>
-                <p class="text-sm text-gray-400 mt-2 max-w-[200px]">Proximamente nuevas y mejores areas para tu estancia en la universidad</p>
-            </div>
+<!-- ========================================== -->
+<!-- SCRIPTS -->
+<!-- ========================================== -->
+<script>
+    /* 
+        Lucide reemplaza todos los elementos HTML con atributo data-lucide
+        por sus versiones SVG equivalentes.
+        Esto permite manipular iconos vía CSS manteniendo su calidad vectorial.
+    */
+    lucide.createIcons();
 
-        </div>
-    </main>
+    // Control del menú móvil
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
 
+    /* 
+        Se verifica que los elementos existan antes de agregar listeners,
+        lo cual evita errores si el DOM no cargó completamente o si se reutiliza el script.
+    */
+    if (btn && menu) {
+        btn.addEventListener('click', () => {
 
+            /* 
+                Alternamos la clase 'hidden', que oculta o muestra el menú móvil.
+                Esto permite un despliegue responsivo sin animaciones complejas.
+            */
+            menu.classList.toggle('hidden');
 
-    <!-- Script para funcionalidad -->
-    <script>
-        // 1. Inicializar los iconos de Lucide
-        lucide.createIcons();
+            // Re-renderiza los iconos cada vez que aparezca contenido dinámico
+            lucide.createIcons();
+        });
+    }
+</script>
 
-        // 2. Lógica del Menú Móvil
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        if(btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-                
-                // Cambiar icono del menú (opcional)
-                const icon = btn.querySelector('svg');
-                if (!menu.classList.contains('hidden')) {
-                   // Si quieres cambiar el icono a una X cuando está abierto
-                   // icon.setAttribute('data-lucide', 'x');
-                } else {
-                   // icon.setAttribute('data-lucide', 'menu');
-                }
-                lucide.createIcons(); // Reiniciar iconos si cambian
-            });
-        }
-    </script>
 </body>
 </html>

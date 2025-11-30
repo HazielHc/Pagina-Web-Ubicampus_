@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< HEAD
 <!--
     Archivo: Bienvenida/Inicio.html
     Descripción: Página de inicio de la plataforma "Ubicampus".
@@ -7,27 +8,73 @@
     y enlace al menú de usuario. Este archivo utiliza TailwindCSS desde CDN, fuentes de Google y Phosphor Icons.
     Uso: Editar secciones principales (HEADER, HERO, SECCION SOBRE, FOOTER) para personalizar contenidos.
 -->
+=======
+
+<!--
+    Archivo: Bienvenida/Inicio.html
+    Descripción general:
+    --------------------
+    Esta es la página de inicio para la plataforma "Ubicampus", pensada para ser 
+    la primera pantalla que los usuarios ven al entrar. Su función principal es 
+    presentar la marca, facilitar el acceso a recursos institucionales y mostrar 
+    un mensaje de bienvenida visualmente atractivo.
+    
+    Tecnologías utilizadas:
+    - TailwindCSS (CDN): Para dar estilos de forma rápida, responsiva y moderna.
+    - Google Fonts: Para agregar tipografías personalizadas (Inter y Merriweather).
+    - Phosphor Icons: Librería de iconos para la interfaz.
+    
+    Estructura del documento:
+    - <head>: carga de estilos, fuentes e iconos, y configuración de Tailwind.
+    - <header>: barra superior fija con logo, enlaces y menú.
+    - <main>: sección principal tipo "hero" con imagen de fondo y título.
+    - <section>: sección informativa "Sobre Ubicampus".
+    - <footer>: pie de página simple con firma de la plataforma.
+-->
+
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubicampus</title>
     
-    <!-- Tailwind CSS -->
+    <!-- 
+        Carga de TailwindCSS:
+        Se usa mediante CDN para evitar configuración local.
+        Tailwind permite crear interfaces modernas y responsivas 
+        solo usando clases utilitarias en el HTML.
+    -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Fuentes -->
+    <!-- 
+        Google Fonts:
+        Se importan dos familias:
+        - Inter (para texto general por su alta legibilidad)
+        - Merriweather (para títulos con estilo más formal y elegante)
+    -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
     
-    <!-- Iconos -->
+    <!--
+        Phosphor Icons:
+        Librería de iconos SVG ligera y escalable.
+        Permite usar iconos mediante clases, por ejemplo:
+        <i class="ph ph-user-circle"></i>
+    -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+    <!-- 
+        Configuración personalizada de TailwindCSS:
+        Aquí se extiende el tema con:
+        ✔ Colores personalizados de la identidad de Ubicampus
+        ✔ Tipografías globales para serif y sans-serif
+    -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'ub-blue': '#002855',
-                        'ub-dark': '#021730',
+                        'ub-blue': '#002855',  // Azul corporativo
+                        'ub-dark': '#021730',  // Azul oscuro para fondos
                     },
                     fontFamily: {
                         serif: ['Merriweather', 'serif'],
@@ -38,36 +85,67 @@
         }
     </script>
 </head>
+
 <body class="bg-white font-sans text-gray-900 overflow-x-hidden">
 
+<<<<<<< HEAD
     <!-- CABECERA: Barra superior fija con logo, enlaces y acceso al menú -->
+=======
+    <!-- ===================================================== -->
+    <!-- HEADER / ENCABEZADO FIJO                             -->
+    <!-- ===================================================== -->
+    <!--
+        Contiene:
+        - Logo + nombre de la plataforma
+        - Enlaces directos a la página oficial y a Moodle
+        - Acceso al área de usuario
+        - Botón de menú tipo hamburguesa
+
+        Se mantiene fijo en la parte superior (position: fixed)
+        y utiliza diseño responsivo (stack en móviles, horizontal en desktop).
+    -->
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
     <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-start">
         
-        <!-- === 1. GRUPO IZQUIERDA (Logo + Enlaces) === -->
+        <!-- Bloque izquierdo: logo + enlaces -->
         <div class="flex flex-col md:flex-row md:items-center bg-white/95 backdrop-blur-md p-4 pr-8 rounded-br-xl shadow-sm md:shadow-none md:bg-transparent transition-all duration-300">
             
+<<<<<<< HEAD
             <!-- A. Bloque del logo: enlace a la página de inicio con marca y texto -->
+=======
+            <!-- Logo principal; redirige a la página de inicio -->
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
             <a href="Inicio.html" class="flex items-center gap-3 mr-8 group">
+                
+                <!-- Caja rectangular con las siglas UPEN -->
                 <div class="bg-ub-blue text-white w-20 h-14 flex items-center justify-center font-bold text-xl rounded-lg shadow-lg group-hover:scale-105 transition duration-300 overflow-hidden">
                     <span>UPEN</span>
                 </div>
                 
+                <!-- Texto de identidad: nombre "Ubicampus" -->
                 <div class="flex flex-col leading-none">
                     <span class="font-serif font-bold text-xl text-ub-blue tracking-tight">Ubicampus</span>
-                    <span class="text-xs text-gray-500 font-sans tracking-widest uppercase mt-1">Universidad</span>
+                    <span class="text-xs text-gray-500 font-sans tracking-widest uppercase mt-1">
+                        Universidad
+                    </span>
                 </div>
             </a>
 
-            <!-- B. Enlaces (Página Oficial + Moodle) -->
+            <!-- Bloque de enlaces institucionales -->
             <div class="flex items-center gap-8">
+                
+                <!-- Enlace a la página oficial de UPEN -->
                 <a href="https://upnay.edu.mx/" target="_blank" class="hidden md:flex items-center text-sm font-medium text-gray-600 hover:text-ub-blue hover:underline transition pl-4 md:border-l border-gray-300">
+                    <!-- Indicador verde animado para "sitio activo" -->
                     <span class="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
                     Ir a Página Oficial UPEN
+                    <!-- Icono de flecha -->
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1">
                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
                     </svg>
                 </a>
 
+                <!-- Enlace a Moodle (plataforma educativa) -->
                 <a href="https://upnay.edu.mx/mupen/login/index.php" target="_blank" class="group flex items-center gap-2 text-gray-600 hover:text-[#0f2545] transition-colors">
                     <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
                     <span class="font-medium">Moodle</span>
@@ -78,12 +156,20 @@
             </div> 
         </div> 
 
+<<<<<<< HEAD
         <!-- === 2. GRUPO DERECHO (Menú Azul) === -->
+=======
+        <!-- Bloque derecho: acceso + botón de menú -->
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
         <div class="bg-ub-blue text-white flex items-stretch h-16 md:h-20 shadow-2xl rounded-bl-xl overflow-hidden">
+            
+            <!-- Acceso al área de usuario -->
             <a href="menu.html" class="flex items-center gap-2 px-6 hover:bg-ub-dark transition border-r border-white/10">
                 <i class="ph ph-user-circle text-2xl"></i>
                 <span class="font-semibold hidden md:inline">Acceso</span>
             </a>
+
+            <!-- Botón hamburguesa para menú lateral o futuro -->
             <button class="flex items-center gap-2 px-6 hover:bg-ub-dark transition group">
                 <div class="flex flex-col items-end gap-1.5 group-hover:gap-2 transition-all duration-300">
                     <span class="w-6 h-0.5 bg-white"></span>
@@ -94,16 +180,37 @@
         </div>
     </header>
 
+<<<<<<< HEAD
     <!-- SECCIÓN HERO (Presentación principal con imagen de fondo y títulos) -->
     <main class="relative w-full min-h-screen flex flex-col justify-center items-center text-center pt-20 pb-20 overflow-hidden">
         
         <!-- Fondo: imagen de fondo del campus (carga alternativa si falla) -->
+=======
+    <!-- ===================================================== -->
+    <!-- SECCIÓN HERO (Presentación principal visual)          -->
+    <!-- ===================================================== -->
+    <!--
+        Esta sección combina:
+        ✔ Imagen de fondo (con fallback por si falla la carga)
+        ✔ Títulos grandes de bienvenida
+        ✔ Un lema institucional
+        ✔ Efectos visuales como blur y gradientes
+        ✔ Indicador de scroll animado
+
+        El objetivo es generar impacto visual y sensación de marca.
+    -->
+    <main class="relative w-full min-h-screen flex flex-col justify-center items-center text-center pt-20 pb-20 overflow-hidden">
+        
+        <!-- Fondo visual principal -->
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
         <div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
-            <img src="/img/Upen dron.jpeg" onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1470&auto=format&fit=crop'"
-             alt="University Campus"
-             class="w-full h-[90%] object-cover object-center opacity-90 blur-sm">
+            <img src="/img/Upen dron.jpeg"
+                 onerror="this.src='https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1470&auto=format&fit=crop'"
+                 alt="University Campus"
+                 class="w-full h-[90%] object-cover object-center opacity-90 blur-sm">
         </div>
 
+<<<<<<< HEAD
         <!-- Gradiente blanco para mejorar legibilidad del texto sobre la imagen -->
         <div class="absolute top-0 left-0 w-full h-[90%] z-10 bg-gradient-to-b from-white/30 via-white/60 to-white pointer-events-none"></div>
 
@@ -111,52 +218,111 @@
         <div class="relative z-20 px-4 max-w-4xl mx-auto mt-10">
             
             <!-- Títulos: línea superior descriptiva, título principal y lema -->
+=======
+        <!-- Gradiente para asegurar legibilidad del texto -->
+        <div class="absolute top-0 left-0 w-full h-[90%] z-10 bg-gradient-to-b from-white/30 via-white/60 to-white pointer-events-none"></div>
+
+        <!-- Contenido textual centrado -->
+        <div class="relative z-20 px-4 max-w-4xl mx-auto mt-10">
+            
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
             <div class="fade-in-up" style="animation-delay: 0.1s;">
-                <h2 class="font-sans font-light text-ub-blue uppercase tracking-[0.2em] text-sm mb-4">Plataforma Universitaria</h2>
+                <h2 class="font-sans font-light text-ub-blue uppercase tracking-[0.2em] text-sm mb-4">
+                    Plataforma Universitaria
+                </h2>
+                
+                <!-- Título principal del hero -->
                 <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl text-gray-900 tracking-tight leading-none mb-2">
                     Welcome to <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-ub-blue to-blue-600">Ubicampus</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-ub-blue to-blue-600">
+                        Ubicampus
+                    </span>
                 </h1>
+<<<<<<< HEAD
                 <p class="font-serif italic text-2xl text-gray-600 mt-4">"Aprende y conecta"</p>
             </div>
 
                 
                 <!-- Feedback visual de error/carga: elemento oculto por defecto, mostrar según sea necesario -->
                 <p id="searchFeedback" class="text-red-500 font-medium mt-3 hidden text-sm bg-white/80 inline-block px-3 py-1 rounded-full shadow-sm"></p>
+=======
+
+                <!-- Lema central -->
+                <p class="font-serif italic text-2xl text-gray-600 mt-4">
+                    "Aprende y conecta"
+                </p>
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
             </div>
 
+            <!-- Elemento que se mostraría en caso de validaciones -->
+            <p id="searchFeedback" class="text-red-500 font-medium mt-3 hidden text-sm bg-white/80 inline-block px-3 py-1 rounded-full shadow-sm"></p>
         </div>
 
+<<<<<<< HEAD
         <!-- Indicador de scroll: flecha animada para sugerir desplazamiento -->
+=======
+        <!-- Indicador de scroll con animación bounce -->
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce text-ub-blue/50">
             <i class="ph ph-caret-down text-3xl"></i>
         </div>
 
     </main>
 
+<<<<<<< HEAD
     <!-- SECCIÓN DE CONTENIDO (Sobre Ubicampus): explicación breve del proyecto/plataforma -->
+=======
+    <!-- ===================================================== -->
+    <!-- SECCIÓN "SOBRE UBICAMPUS"                             -->
+    <!-- ===================================================== -->
+    <!--
+        Esta sección funciona como introducción al proyecto:
+        - Explica el propósito general
+        - Muestra sus beneficios para distintos actores (alumnos, docentes, administración)
+        - Está centrada y con lectura cómoda
+    -->
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
     <section class="relative z-20 bg-white px-6 pb-24">
         <div class="max-w-5xl mx-auto">
             <div class="border-l-4 border-ub-blue pl-8 py-2 mb-16">
-                <h3 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">Sobre Ubicampus</h3>
+                
+                <!-- Título de la sección -->
+                <h3 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                    Sobre Ubicampus
+                </h3>
+                
+                <!-- Texto descriptivo -->
                 <p class="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
                     Ubicampus es una plataforma diseñada para mejorar la experiencia académica,
                     administrativa y social dentro de una universidad moderna. Su objetivo es facilitar
                     procesos, optimizar tiempos y brindar herramientas tecnológicas a estudiantes,
-                    profesores y personal administrativo así como dar a conocer las diferentes áreas del campus.
+                    profesores y personal administrativo, así como dar a conocer las diferentes áreas del campus.
                 </p>
             </div>
         </div>
     </section>
 
+<<<<<<< HEAD
     <!-- PIE DE PÁGINA: información de marca y cierre -->
+=======
+    <!-- ===================================================== -->
+    <!-- FOOTER / PIE DE PÁGINA                                -->
+    <!-- ===================================================== -->
+    <!--
+        Pie de página minimalista:
+        - Usa el color corporativo principal
+        - Incluye icono y el nombre de la plataforma
+        - Marca registrada simple
+    -->
+>>>>>>> 8757fd9c1a48d42dcec50a1833deaaada7490d66
     <footer class="bg-ub-blue text-white py-12 text-center border-t border-white/10">
+        
+        <!-- Firma visual -->
         <div class="flex items-center justify-center gap-3 mb-4 opacity-80">
             <i class="ph ph-student text-2xl"></i>
             <span class="font-serif text-xl tracking-wide">Ubicampus</span>
         </div>
     </footer>
 
-  
 </body>
 </html>

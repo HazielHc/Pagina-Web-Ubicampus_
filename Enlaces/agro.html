@@ -1,138 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- METADATOS DEL DOCUMENTO -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agrobiotecnologia - UPEN</title>
-    <!-- Tailwind CSS -->
+    
+    <!-- ENLACES A RECURSOS EXTERNOS -->
+    
+    <!-- Tailwind CSS - Framework de estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    
+    <!-- Google Fonts - Fuente Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
+    
+    <!-- Lucide Icons - Biblioteca de iconos -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- ESTILOS PERSONALIZADOS -->
     <style>
-        body { font-family: 'Inter', sans-serif;  }
-        .nav-link-active { color: #2563EB; position: relative; }
-        .nav-link-active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: #2563EB; }
-        .nav-link { color: #4B5563; transition: color 0.2s; }
-        .nav-link:hover { color: #111827; }
+        /* Establecer fuente principal */
+        body { font-family: 'Inter', sans-serif; }
         
-        /* Animación suave para las imágenes */
-        .hover-zoom img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-        .hover-zoom:hover img { transform: scale(1.05); }
+        /* Estilos para enlaces de navegación activos */
+        .nav-link-active { 
+            color: #2563EB; 
+            position: relative; 
+        }
+        .nav-link-active::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -4px; 
+            left: 0; 
+            width: 100%; 
+            height: 2px; 
+            background-color: #2563EB; 
+        }
+        
+        /* Estilos para enlaces de navegación normales */
+        .nav-link { 
+            color: #4B5563; 
+            transition: color 0.2s; 
+        }
+        .nav-link:hover { 
+            color: #111827; 
+        }
+        
+        /* Animación de zoom para imágenes */
+        .hover-zoom img { 
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+        .hover-zoom:hover img { 
+            transform: scale(1.05); 
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800">
 
     <!-- --- BARRA DE NAVEGACIÓN (NAVBAR) --- -->
-<nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20 items-center">
+    <nav class="bg-blue-100/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
 
-            <!-- Logo UPEN -->
-            <div class="flex-shrink-0 flex items-center gap-2">
-                <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
-                    <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
-                </a>
-            </div>
+                <!-- LOGO DE LA UNIVERSIDAD -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <a href="/Bienvenida/Inicio.html" class="block hover:opacity-90 transition-opacity">
+                        <img src="/img/logo-upen.png" alt="Logo UPEN" class="h-10 w-auto object-contain">
+                    </a>
+                </div>
 
-            <!-- Menú Escritorio -->
-            <div class="hidden md:flex items-center space-x-8">
-                <nav class="hidden md:flex items-center space-x-8">
-                    <a href="/Enlaces/laboratorios.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">Atras</a>
-                    <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Oferta Educativa</a>
-                    
-                    <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Contacto</a>
-                </nav>
-            </div>
+                <!-- MENÚ DE ESCRITORIO -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <nav class="hidden md:flex items-center space-x-8">
+                        <!-- Enlace para regresar -->
+                        <a href="/Enlaces/laboratorios.html" class="text-blue-600 border-b-2 border-blue-600 pb-1 text-sm font-medium transition-colors">Atras</a>
+                        <!-- Enlace a oferta educativa -->
+                        <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Oferta Educativa</a>
+                        <!-- Enlace de contacto -->
+                        <a href="https://upnay.edu.mx/dir.html" target="_blank" class="text-gray-500 hover:text-blue-600 hover:border-b-2 hover:border-blue-600 pb-1 text-sm font-medium transition-all">Contacto</a>
+                    </nav>
+                </div>
 
-            <!-- Iconos y Botón -->
-            <div class="hidden md:flex items-center space-x-4">
-              
-               
-
-            </div>
-
-            <!-- Botón Menú Móvil -->
-            <div class="flex md:hidden items-center">
-                <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none p-2">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
+                <!-- BOTÓN DE MENÚ MÓVIL -->
+                <div class="flex md:hidden items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-700 focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Menú Móvil -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-        <div class="px-4 pt-2 pb-6 space-y-2">
-            <a href="Inicio.html" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium bg-blue-50 text-blue-700">Inicio</a>
-            <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Oferta Educativa</a>
-          
-            <a href="https://upnay.edu.mx/dir.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Contacto</a>
+        <!-- MENÚ MÓVIL (oculto por defecto) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="Inicio.html" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium bg-blue-50 text-blue-700">Inicio</a>
+                <a href="https://upnay.edu.mx/oferta.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Oferta Educativa</a>
+                <a href="https://upnay.edu.mx/dir.html" target="_blank" class="block w-full text-left px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:bg-blue-50 hover:text-blue-600">Contacto</a>
 
-            <div class="mt-4 pt-4 border-t border-gray-100">
-                <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg text-center font-semibold shadow-md">
-                    Portal Alumno
-                </button>
+                <!-- Botón para portal del alumno -->
+                <div class="mt-4 pt-4 border-t border-gray-100">
+                    <button class="w-full bg-blue-700 text-white px-4 py-3 rounded-lg text-center font-semibold shadow-md">
+                        Portal Alumno
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-
-    <!-- HERO HEADER: Imagen de Fondo con Título Resaltado -->
+    <!-- HERO HEADER: Sección principal con imagen de fondo -->
     <header class="relative h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
-        <!-- Imagen de fondo -->
+        <!-- Imagen de fondo con opacidad -->
         <div class="absolute inset-0 z-0">
             <img src="/img/agrooo foto.avif" alt="Programación y Código" class="w-full h-full object-cover opacity-50">
-            <!-- Gradiente para mejorar lectura -->
+            <!-- Gradiente para mejorar legibilidad del texto -->
             <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/40 to-white"></div>
         </div>
 
+        <!-- Contenido del hero -->
         <div class="relative z-10 text-center max-w-4xl px-4 mt-10">
+            <!-- Badge destacado -->
             <span class="inline-block py-1 px-3 rounded-full bg-blue-600/20 border border-blue-400/30 backdrop-blur-md text-blue-200 text-xs font-bold tracking-widest uppercase mb-4 shadow-lg">
                 Innovación Tecnológica
             </span>
+            <!-- Título principal -->
             <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-lg">
                 Laboratorios de  <br/>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Agrobiotecnologia</span>
             </h1>
+            <!-- Descripción -->
             <p class="text-xl md:text-2xl text-slate-200 font-light max-w-2xl mx-auto mb-8 text-shadow">
-Domina la ciencia que impulsa la vida.
-Cultiva, transforma y lidera la innovación agrícola.            </p>
-            
-</div>
-
+                Domina la ciencia que impulsa la vida.
+                Cultiva, transforma y lidera la innovación agrícola.
+            </p>
         </div>
     </header>
 
-    <!-- SECCIÓN 1: Descripción de la Carrera (Texto + Imagen) -->
+    <!-- SECCIÓN 1: Descripción de la Carrera -->
     <section class="py-20 relative -mt-20 z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Tarjeta con fondo blanco y sombra -->
             <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <!-- Texto Descriptivo -->
+                    <!-- Columna de texto -->
                     <div>
-                       
                         <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
                             Mas que cultivar, <br/>
                             <span class="text-indigo-600">creamos innovacion.</span>
                         </h2>
                         <p class="text-lg text-slate-600 leading-relaxed mb-6">
-                        La carrera de <strong>Ingeniería en Agrobiotecnología</strong> en UPEN está diseñada para formar profesionales capaces de innovar y enfrentar los desafíos actuales del sector agrícola y biotecnológico. No solo aprenderás los fundamentos de la biología, genética y producción vegetal, sino que podrás comprender cómo funciona nuestro entorno agrícola y cómo la tecnología moderna impulsa su desarrollo. Esto lo aprenderás en nuestros laboratorios especializados de la mano de profesores expertos y diversos cursos que tenemos para ti, como <strong>Biotecnología Vegetal</strong>, donde conocerás técnicas como cultivo de tejidos y mejora genética; <strong>Microbiología Agrícola</strong>, donde aprenderás el papel de los microorganismos en los cultivos y la sustentabilidad; <strong>Análisis de Suelos</strong>, donde comprenderás cómo evaluar y optimizar los nutrientes esenciales; y muchas cosas más que te ayudarán a convertirte en un profesional capaz de transformar el campo mediante la ciencia y la innovación.
+                            La carrera de <strong>Ingeniería en Agrobiotecnología</strong> en UPEN está diseñada para formar profesionales capaces de innovar y enfrentar los desafíos actuales del sector agrícola y biotecnológico. No solo aprenderás los fundamentos de la biología, genética y producción vegetal, sino que podrás comprender cómo funciona nuestro entorno agrícola y cómo la tecnología moderna impulsa su desarrollo. Esto lo aprenderás en nuestros laboratorios especializados de la mano de profesores expertos y diversos cursos que tenemos para ti, como <strong>Biotecnología Vegetal</strong>, donde conocerás técnicas como cultivo de tejidos y mejora genética; <strong>Microbiología Agrícola</strong>, donde aprenderás el papel de los microorganismos en los cultivos y la sustentabilidad; <strong>Análisis de Suelos</strong>, donde comprenderás cómo evaluar y optimizar los nutrientes esenciales; y muchas cosas más que te ayudarán a convertirte en un profesional capaz de transformar el campo mediante la ciencia y la innovación.
                         </p>
                         <p class="text-lg text-slate-600 leading-relaxed mb-8">
                             Nuestro enfoque práctico te sumerge desde el primer semestre en el uso de herramientas profesionales, preparándote para los retos del mundo real
                         </p>
-                        
-                        
                     </div>
                     
-                    <!-- Imagen destacada -->
+                    <!-- Columna de imagen -->
                     <div class="relative group">
-                        <!-- Elemento decorativo detrás -->
+                        <!-- Efecto decorativo de fondo -->
                         <div class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl opacity-20 blur-lg group-hover:opacity-30 transition duration-500"></div>
+                        <!-- Contenedor de imagen con efecto hover -->
                         <div class="relative hover-zoom rounded-2xl overflow-hidden shadow-2xl">
                             <img src="/img/laboratorio-plantas-960-426-960-20356.jpg" alt="Estudiantes colaborando" class="w-full h-full object-cover">
                         </div>
@@ -142,69 +169,60 @@ Cultiva, transforma y lidera la innovación agrícola.            </p>
         </div>
     </section>
 
-    <!-- SECCIÓN 2: El Laboratorio (Video Local de Stock) -->
+    <!-- SECCIÓN 2: El Laboratorio -->
     <section class="py-20 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 
-                <!-- 
-                   CONTENEDOR DE VIDEO: 
-                   Hemos reemplazado el iframe de Facebook por un video directo (MP4) para evitar el error de conexión.
-                   En un servidor real con dominio propio, el iframe de Facebook sí funcionaría.
-                -->
+                <!-- CONTENEDOR DE VIDEO -->
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-black aspect-video group transform hover:scale-[1.02] transition duration-500">
                     
-                    <!-- Video de Stock (Pexels) simulando ambiente de trabajo -->
+                    <!-- Video de fondo (reemplaza el iframe de Facebook por compatibilidad) -->
                     <video class="absolute top-0 left-0 w-full h-full object-cover" autoplay loop muted playsinline>
                         <source src="https://videos.pexels.com/video-files/3129957/3129957-hd_1920_1080_25fps.mp4" type="video/mp4">
                         Tu navegador no soporta video HTML5.
                     </video>
 
-                    <!-- Overlay oscuro para mejorar legibilidad del botón -->
+                    <!-- Overlay para mejorar legibilidad -->
                     <div class="absolute inset-0 bg-black/30"></div>
 
-                    <!-- Botón Flotante "Ver en Facebook" -->
+                    <!-- Botón para ver publicación original en Facebook -->
                     <a href="https://www.facebook.com/share/v/17XAVfhYqG/" target="_blank" class="absolute bottom-6 left-6 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold px-4 py-2 rounded-full flex items-center gap-2 transition shadow-lg backdrop-blur-sm border border-blue-400/30">
                         <i data-lucide="facebook" class="w-4 h-4 fill-current"></i> 
                         Ver publicación original
                     </a>
-
-                 
                 </div>
 
-<!-- Texto (Derecha) -->
-<div>
-    <span class="text-green-600 font-bold tracking-wider text-xs uppercase mb-2 block">Instalaciones de Alto Impacto Científico</span>
-    <h2 class="text-3xl font-bold text-slate-900 mb-4">Tu centro de descubrimiento</h2>
+                <!-- TEXTO DESCRIPTIVO DEL LABORATORIO -->
+                <div>
+                    <span class="text-green-600 font-bold tracking-wider text-xs uppercase mb-2 block">Instalaciones de Alto Impacto Científico</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Tu centro de descubrimiento</h2>
 
-    <p class="text-lg text-slate-600 leading-relaxed mb-6">
-        En Agrobiotecnología contarás con acceso exclusivo a nuestros <strong>Laboratorios de Investigación y Desarrollo Biotecnológico</strong>, espacios diseñados para impulsar tu formación científica y prepararte para los retos reales del sector agroalimentario. Aquí trabajarás con tecnología especializada y entornos utilizados por instituciones y empresas líderes en biotecnología.
-    </p>
-    
-    <div class="space-y-6">
-        
-        <div class="flex gap-4">
-            <div>
-                <h4 class="font-bold text-slate-900">Laboratorios de Biotecnología Vegetal</h4>
-                <p class="text-sm text-slate-500 mt-1">
-                    Equipados para cultivo de tejidos, análisis molecular, técnicas de propagación y mejora genética de plantas.
-                </p>
-            </div>
-        </div>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                        En Agrobiotecnología contarás con acceso exclusivo a nuestros <strong>Laboratorios de Investigación y Desarrollo Biotecnológico</strong>, espacios diseñados para impulsar tu formación científica y prepararte para los retos reales del sector agroalimentario. Aquí trabajarás con tecnología especializada y entornos utilizados por instituciones y empresas líderes en biotecnología.
+                    </p>
+                    
+                    <!-- Lista de características del laboratorio -->
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Laboratorios de Biotecnología Vegetal</h4>
+                                <p class="text-sm text-slate-500 mt-1">
+                                    Equipados para cultivo de tejidos, análisis molecular, técnicas de propagación y mejora genética de plantas.
+                                </p>
+                            </div>
+                        </div>
 
-        <div class="flex gap-4">
-            <div>
-                <h4 class="font-bold text-slate-900">Infraestructura para Investigación Agrícola</h4>
-                <p class="text-sm text-slate-500 mt-1">
-                    Invernaderos, áreas de experimentación controlada y equipos de análisis de suelos y microbiología para proyectos reales.
-                </p>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
+                        <div class="flex gap-4">
+                            <div>
+                                <h4 class="font-bold text-slate-900">Infraestructura para Investigación Agrícola</h4>
+                                <p class="text-sm text-slate-500 mt-1">
+                                    Invernaderos, áreas de experimentación controlada y equipos de análisis de suelos y microbiología para proyectos reales.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -212,22 +230,23 @@ Cultiva, transforma y lidera la innovación agrícola.            </p>
     <!-- SECCIÓN 3: Galería de Vida Estudiantil -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Encabezado de la sección -->
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-slate-900">Conoce mas</h2>
                 <p class="text-slate-500 mt-4 max-w-2xl mx-auto">Más allá del aula, participarás en proyectos de campo, prácticas experimentales, jornadas científicas y actividades que te conectarán con el mundo profesional del sector agrobiotecnológico.</p>
             </div>
 
+            <!-- Grid de galería de imágenes -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4 h-[500px] md:grid-rows-2">
                 <!-- Imagen Principal Grande (Izquierda) -->
                 <div class="md:col-span-2 md:row-span-2 hover-zoom rounded-2xl overflow-hidden relative group">
                     <img src="/img/hhhhh.jpg" class="w-full h-full object-cover">
-                    
                 </div>
                 
                 <!-- Imagen Secundaria Superior (Derecha) -->
                 <div class="md:col-span-2 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative group">
                     <img src="/img/uuuu}.jpg" class="w-full h-full object-cover">
-                     <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
                 </div>
 
                 <!-- Imagen Terciaria Inferior (Derecha 1) -->
@@ -237,8 +256,7 @@ Cultiva, transforma y lidera la innovación agrícola.            </p>
 
                 <!-- Imagen Cuaternaria Inferior (Derecha 2) -->
                 <div class="md:col-span-1 md:row-span-1 hover-zoom rounded-2xl overflow-hidden relative bg-slate-900 flex items-center justify-center group cursor-pointer">
-                     <img src="/img/571202596_1343215727813335_4830722040685901913_n.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
-                     
+                    <img src="/img/571202596_1343215727813335_4830722040685901913_n.jpg" class="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition">
                 </div>
             </div>
         </div>
@@ -247,8 +265,11 @@ Cultiva, transforma y lidera la innovación agrícola.            </p>
     <!-- FOOTER -->
     <footer class="bg-slate-900 text-white py-12 border-t-4 border-blue-600">
         <div class="max-w-7xl mx-auto px-4 text-center">
+            <!-- Logo y descripción -->
             <h3 class="text-2xl font-black mb-4 tracking-tighter text-white">UPEN</h3>
             <p class="text-slate-400 text-sm mb-8">Formando a los líderes tecnológicos del mañana.</p>
+            
+            <!-- Enlaces legales -->
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
                 <div class="flex gap-4 mt-4 md:mt-0">
                     <a href="#" class="hover:text-white transition">Privacidad</a>
@@ -259,7 +280,7 @@ Cultiva, transforma y lidera la innovación agrícola.            </p>
         </div>
     </footer>
 
-    <!-- Inicializar Iconos -->
+    <!-- SCRIPT PARA INICIALIZAR ICONOS -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             if (window.lucide) {
